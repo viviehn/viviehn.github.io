@@ -31,7 +31,7 @@ nav {
     border-bottom: 1px dashed #373737; }
 
 #site-title {
-  background-image: url("file:///Users/Vivien/Desktop/Code/Site/viviehn.github.io/assets/ninja.png");
+  background-image: url("../assets/ninja.png");
   background-repeat: no-repeat;
   background-size: 200px 200px;
   background-position: center;
