@@ -36,7 +36,7 @@ nav {
     border-bottom: 1px dashed #373737; }
 
 #site-title {
-  background-image: url("file:///Users/Vivien/Desktop/Code/Site/viviehn.github.io/assets/ninja.png");
+  background-image: url("../assets/ninja.png");
   background-repeat: no-repeat;
   background-size: 200px 200px;
   background-position: center;
@@ -46,14 +46,13 @@ nav {
 header h1 {
   text-align: center;
   background-color: rgba(238, 238, 238, 0.7);
-  transform: translate(0, 300%);
-  font-family: Fira Sans, Arial, sans-serif;
+  transform: translate(0, 280%);
   font-size: 200%;
   width: 300px;
   padding-bottom: 4px;
-  margin: auto;
-  height: 44px;
-  color: #373737; }
+  padding-top: 0px;
+  padding-left: 0px;
+  height: 44px; }
 header h1:before, header h1:after {
   position: absolute;
   content: "";
@@ -80,6 +79,7 @@ h1 {
   background-color: #EEE;
   text-transform: uppercase;
   color: #373737;
+  font-size: 160%;
   padding-left: 20px;
   padding-top: 3px;
   width: 65%;
