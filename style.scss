@@ -4,6 +4,7 @@
 // Variables
 $base-font-family: Fira Sans, Arial, sans-serif;
 $base-font-size:   16px;
+$base-width: 	   65%;
 $not-black: 	   #373737;
 $transp-gray:	   transparentize(#EEE, .3);
 $light-blue:	   #EFF3F4;
@@ -19,20 +20,13 @@ $peach:			   #e3a786;
 	box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-body{
-	font-family: $base-font-family;
-	font-size: $base-font-size;
-	width: 100%;
-	margin:0;
-}
-
 nav{
 		background-color: #FFF;
 	    border-top: 3px solid $not-black;
 	    border-bottom: 3px solid $not-black;
 	    height: 60px;
 	    text-align: center;
-	    width: 800px;
+	    width: $base-width;
 	    margin: auto;
 	    @include box-sizing;
 	ul {
@@ -73,6 +67,7 @@ nav{
 	overflow: hidden;
 	height: 250px;
 }
+
 header{
 	h1 {
 		text-align: center;
@@ -106,12 +101,20 @@ header{
 	}
 }
 
+body{
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	width: 100%;
+	margin:0;
+}
+
 h1{
 	background-color: $gray;
 	text-transform: uppercase;
 	color: $not-black;
 	padding-left: 20px;
-	width: 800px;
+	padding-top: 3px;
+	width: $base-width;
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 15px;
@@ -120,8 +123,8 @@ h1{
 
 p {
 	border: 3px solid $not-black;
-	width: 800px;
-	padding: 20px;
+	width: $base-width;
+	padding: 10px 20px;
 	margin: auto;
 	@include box-sizing;
 
@@ -136,6 +139,22 @@ p {
 
 footer{
 	background-color: $light-blue;
+	width: $base-width;
+	margin: auto;
+	margin-top: 20px;
+	padding: 20px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	@include box-sizing;
+	h1{
+		text-transform: uppercase;
+		color: $not-black;
+		background: none;
+		padding: 0;
+		margin: 0;
+		width: auto;
+		height: auto;
+	}
 }
 
 

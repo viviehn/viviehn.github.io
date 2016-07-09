@@ -1,17 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300);
-body {
-  font-family: Fira Sans, Arial, sans-serif;
-  font-size: 16px;
-  width: 100%;
-  margin: 0; }
-
 nav {
   background-color: #FFF;
   border-top: 3px solid #373737;
   border-bottom: 3px solid #373737;
   height: 60px;
   text-align: center;
-  width: 800px;
+  width: 65%;
   margin: auto;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
@@ -42,7 +36,7 @@ nav {
     border-bottom: 1px dashed #373737; }
 
 #site-title {
-  background-image: url("../assets/ninja.png");
+  background-image: url("file:///Users/Vivien/Desktop/Code/Site/viviehn.github.io/assets/ninja.png");
   background-repeat: no-repeat;
   background-size: 200px 200px;
   background-position: center;
@@ -76,12 +70,19 @@ header h1:after {
   right: 0px;
   border-right: 20px solid white; }
 
+body {
+  font-family: Fira Sans, Arial, sans-serif;
+  font-size: 16px;
+  width: 100%;
+  margin: 0; }
+
 h1 {
   background-color: #EEE;
   text-transform: uppercase;
   color: #373737;
   padding-left: 20px;
-  width: 800px;
+  padding-top: 3px;
+  width: 65%;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 15px;
@@ -94,8 +95,8 @@ h1 {
 
 p {
   border: 3px solid #373737;
-  width: 800px;
-  padding: 20px;
+  width: 65%;
+  padding: 10px 20px;
   margin: auto;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
@@ -109,6 +110,26 @@ p {
     color: #426973; }
 
 footer {
-  background-color: #EFF3F4; }
+  background-color: #EFF3F4;
+  width: 65%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */ }
+  footer h1 {
+    text-transform: uppercase;
+    color: #373737;
+    background: none;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto; }
 
 /*# sourceMappingURL=style.css.map */
