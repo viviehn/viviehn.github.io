@@ -1,0 +1,77 @@
+//Imports
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300);
+
+// Variables
+$base-font-family: Fira Sans, Arial, sans-serif;
+$base-font-size:   16px;
+$not-black: 	   #373737;
+$transp-gray:	   transparentize(#EEE, .3);
+$light-blue:	   #FFF;
+$dark-blue:		   #FFF;
+$gray:			   #FFF;
+$raspberry:		   #FFF;
+
+body{
+	font-family: $base-font-family;
+}
+
+nav{
+		background-color: #FFF;
+	    border-top: 3px solid $not-black;
+	    border-bottom: 3px solid $not-black;
+	    height: 60px;
+	    text-align: center;
+	ul {
+	    display: inline-block;
+    	list-style-type: none;
+	    margin: auto;
+	    padding: 10px 0px;
+	    overflow: hidden;
+	    width: auto;
+	    height: 40px;
+	    clear: both;
+	}
+
+	li {
+	    float: left;
+	    padding-top: 10px;
+	}
+
+	li a {
+	    display: block;
+	    color: $not-black;
+	    text-align: center;
+	    text-transform: uppercase;
+	    margin: 0px 30px;
+	    text-decoration: none;
+	}
+
+	li a:hover {
+	    border-bottom: 1px dashed $not-black;
+	}
+}
+
+#site-title{
+	background-image: url("file:///Users/Vivien/Desktop/Code/Site/viviehn.github.io/assets/ninja.png");
+	background-repeat: no-repeat;
+	background-size: 200px 200px;
+	background-position: center;
+	overflow: hidden;
+	height: 250px;
+}
+
+h1 {
+	text-align: center;
+	background-color: $transp-gray;
+	transform: translate(0, 350%);
+	font-family:$base-font-family;
+	width: 250px;
+	margin: auto;
+	line-height: 120%;
+	color: $not-black;
+}
+
+#header {
+	background-color: #FFF;
+}
+

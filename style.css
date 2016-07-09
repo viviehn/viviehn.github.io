@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300);
+body {
+  font-family: Fira Sans, Arial, sans-serif; }
+
+nav {
+  background-color: #FFF;
+  border-top: 3px solid #373737;
+  border-bottom: 3px solid #373737;
+  height: 60px;
+  text-align: center; }
+  nav ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: auto;
+    padding: 10px 0px;
+    overflow: hidden;
+    width: auto;
+    height: 40px;
+    clear: both; }
+  nav li {
+    float: left;
+    padding-top: 10px; }
+  nav li a {
+    display: block;
+    color: #373737;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0px 30px;
+    text-decoration: none; }
+  nav li a:hover {
+    border-bottom: 1px dashed #373737; }
+
+#site-title {
+  background-image: url("file:///Users/Vivien/Desktop/Code/Site/viviehn.github.io/assets/ninja.png");
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+  background-position: center;
+  overflow: hidden;
+  height: 250px; }
+
+h1 {
+  text-align: center;
+  background-color: rgba(238, 238, 238, 0.7);
+  transform: translate(0, 350%);
+  font-family: Fira Sans, Arial, sans-serif;
+  width: 250px;
+  margin: auto;
+  line-height: 120%;
+  color: #373737; }
+
+#header {
+  background-color: #FFF; }
+
+/*# sourceMappingURL=style.css.map */
