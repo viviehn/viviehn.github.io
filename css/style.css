@@ -5,7 +5,7 @@ nav {
   border-bottom: 3px solid #373737;
   height: 60px;
   text-align: center;
-  width: 65%;
+  width: 75%;
   margin: auto;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
@@ -82,7 +82,7 @@ h1 {
   font-size: 160%;
   padding-left: 20px;
   padding-top: 3px;
-  width: 65%;
+  width: 75%;
   margin: auto;
   margin-top: 20px;
   margin-bottom: 15px;
@@ -95,7 +95,7 @@ h1 {
 
 p {
   border: 3px solid #373737;
-  width: 65%;
+  width: 75%;
   padding: 10px 20px;
   margin: auto;
   -webkit-box-sizing: border-box;
@@ -111,7 +111,7 @@ p {
 
 footer {
   background-color: #EFF3F4;
-  width: 65%;
+  width: 75%;
   margin: auto;
   margin-top: 20px;
   padding: 20px;
