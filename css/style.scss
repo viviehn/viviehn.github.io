@@ -1,10 +1,11 @@
 // Imports
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,300);
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300);
 
 // Variables
 $base-font-family: Fira Sans, Arial, sans-serif;
 $base-font-size:   16px;
 $base-width: 	   75%;
+$border-width:	   2px;
 $not-black: 	   #373737;
 $transp-gray:	   transparentize(#EEE, .3);
 $light-blue:	   #EFF3F4;
@@ -22,8 +23,8 @@ $peach:			   #e3a786;
 
 nav{
 		background-color: #FFF;
-	    border-top: 3px solid $not-black;
-	    border-bottom: 3px solid $not-black;
+	    border-top: $border-width solid $not-black;
+	    border-bottom: $border-width solid $not-black;
 	    height: 60px;
 	    text-align: center;
 	    width: $base-width;
@@ -122,7 +123,7 @@ h1{
 }
 
 p {
-	border: 3px solid $not-black;
+	border: $border-width solid $not-black;
 	width: $base-width;
 	padding: 10px 20px;
 	margin: auto;
