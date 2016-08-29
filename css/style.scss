@@ -1,4 +1,5 @@
-// Imports
+---
+---
 @import url(https://fonts.googleapis.com/css?family=Fira+Sans:300);
 
 // Variables
@@ -8,11 +9,14 @@ $base-width: 	   75%;
 $border-width:	   2px;
 $not-black: 	   #373737;
 $transp-gray:	   transparentize(#EEE, .3);
+$transp-white:	   transparentize(#FFF, .3);
 $light-blue:	   #EFF3F4;
 $dark-blue:		   #426973;
 $gray:			   #EEE;
 $off-white:		   #f4f3ed;
 $peach:			   #e3a786;
+$line-height-base:        1.428571429;
+$border-radius-base:        4px;
 
 // Mix-ins
 @mixin box-sizing{
@@ -22,12 +26,12 @@ $peach:			   #e3a786;
 }
 
 nav{
-		background-color: #FFF;
+		background-color: white;
 	    border-top: $border-width solid $not-black;
 	    border-bottom: $border-width solid $not-black;
 	    height: 60px;
 	    text-align: center;
-	    width: $base-width;
+	    width: 100%;
 	    margin: auto;
 	    @include box-sizing;
 	ul {
@@ -70,9 +74,10 @@ nav{
 }
 
 header{
+	background-color: $light-blue;
 	h1 {
 		text-align: center;
-		background-color: $transp-gray;
+		background-color: $transp-white;
 		transform: translate(0, 280%);
 		font-size: 200%;
 		width: 300px;
@@ -92,16 +97,17 @@ header{
 	}
 	h1:before{
 	    left:0px;
-	    border-left: 20px solid white; 
+	    border-left: 20px solid $light-blue; 
 	}
 	h1:after{
 	    left:auto;
 	    right:0px;
-	    border-right: 20px solid white; 
+	    border-right: 20px solid $light-blue; 
 	}
 }
 
 body{
+	background-color: $light-blue;
 	font-family: $base-font-family;
 	font-size: $base-font-size;
 	width: 100%;
@@ -109,21 +115,19 @@ body{
 }
 
 h1{
-	background-color: $gray;
 	text-transform: uppercase;
 	color: $not-black;
 	font-size: 160%;
-	padding-left: 20px;
+	padding-left: 0px;
 	padding-top: 3px;
 	width: $base-width;
 	margin: auto;
 	margin-top: 20px;
-	margin-bottom: 15px;
+	margin-bottom: -5px;
 	@include box-sizing;
 }
 
 p {
-	border: $border-width solid $not-black;
 	width: $base-width;
 	padding: 10px 20px;
 	margin: auto;
@@ -140,7 +144,7 @@ p {
 
 footer{
 	background-color: $light-blue;
-	width: $base-width;
+	width: 100%;
 	margin: auto;
 	margin-top: 20px;
 	padding: 20px;
@@ -149,6 +153,7 @@ footer{
 	@include box-sizing;
 	h1{
 		text-transform: uppercase;
+		text-align: center;
 		color: $not-black;
 		background: none;
 		padding: 0;
@@ -159,5 +164,80 @@ footer{
 }
 
 
+#resume-nav {
+	border-bottom: 1px solid $not-black;
+  > li {
+    float: left;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+    list-style-type: none;
 
+    // Actual tabs (as links)
+    > a {
+      margin-right: 2px;
+      line-height: $line-height-base;
+      border: 1px solid transparent;
+      border-radius: $border-radius-base $border-radius-base 0 0;
+      &:hover {
+        border-color: $not-black $transp-gray $not-black;
+      }
+    }
 
+    // Active state, and its :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $not-black;
+        background-color: $transp-gray;
+        border: 1px solid $not-black;
+        border-bottom-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+ 
+}
+
+@keyframes grow {
+    from {width: 50px; height: 50px;}
+    to {width: 400px; height: 150px;}
+}
+
+/* The element to apply the animation to */
+.special-box {
+    width: 50px;
+    height: 50px;
+    background-color: $transp-white;
+    animation-name: grow;
+    animation-delay: 3s;
+    animation-duration: 3s;
+    margin: auto;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: .25;
+    }
+    50% {
+        opacity: .5;
+    }
+    75% {
+        opacity: .75;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in-text {
+	animation-name: fade-in;
+	opacity: 0;
+	animation-delay: 6s;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+}

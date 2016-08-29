@@ -5,7 +5,7 @@ nav {
   border-bottom: 2px solid #373737;
   height: 60px;
   text-align: center;
-  width: 75%;
+  width: 100%;
   margin: auto;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
@@ -43,33 +43,36 @@ nav {
   overflow: hidden;
   height: 250px; }
 
-header h1 {
-  text-align: center;
-  background-color: rgba(238, 238, 238, 0.7);
-  transform: translate(0, 280%);
-  font-size: 200%;
-  width: 300px;
-  padding-bottom: 4px;
-  padding-top: 0px;
-  padding-left: 0px;
-  height: 44px; }
-header h1:before, header h1:after {
-  position: absolute;
-  content: "";
-  top: 0px;
-  height: 0px;
-  width: 0px;
-  border-top: 22px solid transparent;
-  border-bottom: 22px solid transparent; }
-header h1:before {
-  left: 0px;
-  border-left: 20px solid white; }
-header h1:after {
-  left: auto;
-  right: 0px;
-  border-right: 20px solid white; }
+header {
+  background-color: #EFF3F4; }
+  header h1 {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: translate(0, 280%);
+    font-size: 200%;
+    width: 300px;
+    padding-bottom: 4px;
+    padding-top: 0px;
+    padding-left: 0px;
+    height: 44px; }
+  header h1:before, header h1:after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    height: 0px;
+    width: 0px;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent; }
+  header h1:before {
+    left: 0px;
+    border-left: 20px solid #EFF3F4; }
+  header h1:after {
+    left: auto;
+    right: 0px;
+    border-right: 20px solid #EFF3F4; }
 
 body {
+  background-color: #EFF3F4;
   font-family: Fira Sans, Arial, sans-serif;
   font-size: 16px;
   width: 100%;
@@ -94,7 +97,7 @@ h1 {
   /* Opera/IE 8+ */ }
 
 p {
-  border: 2px solid #373737;
+  background-color: rgba(255, 255, 255, 0.7);
   width: 75%;
   padding: 10px 20px;
   margin: auto;
