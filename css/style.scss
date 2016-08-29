@@ -1,6 +1,4 @@
----
----
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300);
+
 
 // Variables
 $base-font-family: Fira Sans, Arial, sans-serif;
@@ -164,40 +162,7 @@ footer{
 }
 
 
-#resume-nav {
-	border-bottom: 1px solid $not-black;
-  > li {
-    float: left;
-    // Make the list-items overlay the bottom border
-    margin-bottom: -1px;
-    list-style-type: none;
 
-    // Actual tabs (as links)
-    > a {
-      margin-right: 2px;
-      line-height: $line-height-base;
-      border: 1px solid transparent;
-      border-radius: $border-radius-base $border-radius-base 0 0;
-      &:hover {
-        border-color: $not-black $transp-gray $not-black;
-      }
-    }
-
-    // Active state, and its :hover to override normal :hover
-    &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $not-black;
-        background-color: $transp-gray;
-        border: 1px solid $not-black;
-        border-bottom-color: transparent;
-        cursor: default;
-      }
-    }
-  }
- 
-}
 
 @keyframes grow {
     from {width: 50px; height: 50px;}

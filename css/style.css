@@ -1,6 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300);
 nav {
-  background-color: #FFF;
+  background-color: white;
   border-top: 2px solid #373737;
   border-bottom: 2px solid #373737;
   height: 60px;
@@ -79,16 +78,15 @@ body {
   margin: 0; }
 
 h1 {
-  background-color: #EEE;
   text-transform: uppercase;
   color: #373737;
   font-size: 160%;
-  padding-left: 20px;
+  padding-left: 0px;
   padding-top: 3px;
   width: 75%;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 15px;
+  margin-bottom: -5px;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
@@ -97,16 +95,15 @@ h1 {
   /* Opera/IE 8+ */ }
 
 p {
-  background-color: rgba(255, 255, 255, 0.7);
   width: 75%;
-  padding: 10px 20px;
-  margin: auto;
+  padding: 10px 5px;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
   /* Firefox, other Gecko */
   box-sizing: border-box;
-  /* Opera/IE 8+ */ }
+  /* Opera/IE 8+ */
+  margin: auto; }
   p a {
     color: #e3a786; }
   p a:hover {
@@ -114,7 +111,7 @@ p {
 
 footer {
   background-color: #EFF3F4;
-  width: 75%;
+  width: 60%;
   margin: auto;
   margin-top: 20px;
   padding: 20px;
@@ -128,11 +125,48 @@ footer {
   /* Opera/IE 8+ */ }
   footer h1 {
     text-transform: uppercase;
+    text-align: center;
     color: #373737;
     background: none;
     padding: 0;
     margin: 0;
     width: auto;
     height: auto; }
+
+@keyframes grow {
+  from {
+    width: 50px;
+    height: 50px; }
+  to {
+    width: 400px;
+    height: 150px; } }
+/* The element to apply the animation to */
+.special-box {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+  animation-name: grow;
+  animation-delay: 2s;
+  animation-duration: 3s;
+  margin: auto;
+  animation-fill-mode: forwards; }
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  25% {
+    opacity: .25; }
+  50% {
+    opacity: .5; }
+  75% {
+    opacity: .75; }
+  100% {
+    opacity: 1; } }
+.fade-in-text {
+  animation-name: fade-in;
+  opacity: 0;
+  animation-delay: 6s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards; }
 
 /*# sourceMappingURL=style.css.map */
