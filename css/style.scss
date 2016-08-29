@@ -129,9 +129,9 @@ h1{
 
 p {
 	width: $base-width;
-	padding: 10px 20px;
-	margin: auto;
+	padding: 10px 5px;
 	@include box-sizing;
+	margin:auto;
 
 	a {
 		color: $peach;
@@ -144,7 +144,7 @@ p {
 
 footer{
 	background-color: $light-blue;
-	width: 100%;
+	width: 60%;
 	margin: auto;
 	margin-top: 20px;
 	padding: 20px;
@@ -210,7 +210,7 @@ footer{
     height: 50px;
     background-color: $transp-white;
     animation-name: grow;
-    animation-delay: 3s;
+    animation-delay: 2s;
     animation-duration: 3s;
     margin: auto;
     animation-fill-mode: forwards;
