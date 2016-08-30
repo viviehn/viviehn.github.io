@@ -1,7 +1,9 @@
-
+//Imports
+@import "../assets/hamburgers/hamburgers.scss";
 
 // Variables
 $base-font-family: Fira Sans, Arial, sans-serif;
+$base-font-weight: 300;
 $base-font-size:   16px;
 $base-width: 	   75%;
 $border-width:	   2px;
@@ -68,6 +70,7 @@ nav{
 	background-size: 200px 200px;
 	background-position: center;
 	overflow: hidden;
+	clear: both;
 	height: 250px;
 }
 
@@ -108,6 +111,7 @@ body{
 	background-color: $light-blue;
 	font-family: $base-font-family;
 	font-size: $base-font-size;
+	font-weight: $base-font-weight;
 	width: 100%;
 	margin:0;
 }
@@ -130,7 +134,6 @@ p {
 	padding: 10px 5px;
 	@include box-sizing;
 	margin:auto;
-
 	a {
 		color: $peach;
 	}
@@ -138,6 +141,18 @@ p {
 	a:hover{
 		color: $dark-blue;
 	}
+}
+
+h2{
+	text-transform: uppercase;
+	color: $not-black;
+	text-align: center;
+	line-height: 50px;
+	font-size: 140%;
+	font-weight: 500;
+	width: $base-width;
+	margin: auto;
+	@include box-sizing;
 }
 
 footer{
@@ -165,13 +180,13 @@ footer{
 
 
 @keyframes grow {
-    from {width: 50px; height: 50px;}
-    to {width: 400px; height: 150px;}
+    from {width: 150px; height: 50px;}
+    to {width: 40%; height: 200px; padding:10px;}
 }
 
 /* The element to apply the animation to */
 .special-box {
-    width: 50px;
+    width: 150px;
     height: 50px;
     background-color: $transp-white;
     animation-name: grow;
@@ -179,6 +194,7 @@ footer{
     animation-duration: 3s;
     margin: auto;
     animation-fill-mode: forwards;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 @keyframes fade-in {
@@ -201,8 +217,53 @@ footer{
 
 .fade-in-text {
 	animation-name: fade-in;
+	width: 100%;
+	height: auto;
 	opacity: 0;
 	animation-delay: 6s;
 	animation-duration: 2s;
 	animation-fill-mode: forwards;
 }
+
+#menu-wrapper{
+	float: right;
+	margin-right: 20px;
+	position: relative;
+    display: inline-block;
+}
+
+.hamburger{
+	color: $peach;
+	background-color: $transp-white;
+}
+
+#ham-menu{
+    float:right;
+}
+
+.menu-content{
+		display: none;
+	    position: absolute;
+	    background-color: $transp-white;
+	    text-transform: uppercase;
+	    padding-right: 10px;
+	    font-size: 140%;
+	    min-width: 160px;
+	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	    right:0;
+
+	    text-align: right;
+	    ul{
+	    	list-style-type: none;
+	    }
+	    li a{
+	    	text-decoration: none;
+	    	color: $not-black;
+	    }
+	    li a:hover{
+	    	text-decoration: none;
+	    	color: $peach;
+	    }
+	    @include box-sizing;
+	}
+.show {display:block;}

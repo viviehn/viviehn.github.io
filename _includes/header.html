@@ -1,20 +1,33 @@
-
 <header id="main-header">
-
-<div id="site-title">
-<h1>VIVIEN NGUYEN</h1>
-</div>
-
-
-<nav>
-<ul>
-  <li><a href="http://viviehn.wordpress.com">Blog</a></li>
-  <li><a href="portfolio">Portfolio</a></li>
-  <li><a href="resume">Resume</a></li>
-  <li><a href="http://etsy.com/shop/mostlyharmlessgifts">Shop</a></li>
-</ul>
-</nav>
-
-
-
+	<div id="menu-wrapper">
+		<div class="hamburger hamburger--elastic">
+		<script>
+  // Look for .hamburger
+  var hamburger = document.querySelector(".hamburger");
+  // On click
+  hamburger.addEventListener("click", function() {
+    // Toggle class "is-active"
+    hamburger.classList.toggle("is-active");
+    document.getElementById("ham-menu").classList.toggle("show");
+    // Do something else, like open/close menu
+  });
+</script>
+		  <span class="hamburger-box">
+		    <span class="hamburger-inner"></span>
+		  </span>
+		</div>
+		<div id="ham-menu" class="menu-content">
+		<ul>
+			<li><a href="">Home</a></li>
+			<li><a href="">Portfolio</a></li>
+			<li><a href="">Resume</a></li>
+			<li><a href="">Shop</a></li>
+			</ul>
+		</div>  
+	</div>
+	<div style = "margin-top: 30px">
+		<div id="site-title">
+			<h1>VIVIEN NGUYEN</h1>
+		</div>
+	</div>
 </header>
