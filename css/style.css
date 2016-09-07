@@ -752,7 +752,7 @@ footer {
     height: 50px; }
   to {
     width: 40%;
-    height: 200px;
+    height: 250px;
     padding: 10px; } }
 /* The element to apply the animation to */
 .special-box {
@@ -760,7 +760,7 @@ footer {
   height: 50px;
   background-color: rgba(255, 255, 255, 0.7);
   animation-name: grow;
-  animation-delay: 2s;
+  animation-delay: 1s;
   animation-duration: 3s;
   margin: auto;
   animation-fill-mode: forwards;
@@ -777,14 +777,20 @@ footer {
     opacity: .75; }
   100% {
     opacity: 1; } }
-.fade-in-text {
+.fade-in-text, .fade-in-text2, .fade-in-text3 {
   animation-name: fade-in;
   width: 100%;
   height: auto;
   opacity: 0;
-  animation-delay: 6s;
-  animation-duration: 2s;
+  animation-delay: 4s;
+  animation-duration: 1.5s;
   animation-fill-mode: forwards; }
+
+.fade-in-text2 {
+  animation-delay: 6s; }
+
+.fade-in-text3 {
+  animation-delay: 8s; }
 
 #menu-wrapper {
   float: right;
@@ -806,7 +812,7 @@ footer {
   text-transform: uppercase;
   padding-right: 10px;
   font-size: 140%;
-  min-width: 160px;
+  min-width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   right: 0;
   text-align: right;
