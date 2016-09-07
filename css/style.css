@@ -777,7 +777,7 @@ footer {
     opacity: .75; }
   100% {
     opacity: 1; } }
-.fade-in-text, .fade-in-text2, .fade-in-text3 {
+.fade-in-text {
   animation-name: fade-in;
   width: 100%;
   height: auto;
@@ -787,10 +787,22 @@ footer {
   animation-fill-mode: forwards; }
 
 .fade-in-text2 {
-  animation-delay: 6s; }
+  animation-name: fade-in;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  animation-delay: 6s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; }
 
 .fade-in-text3 {
-  animation-delay: 8s; }
+  animation-name: fade-in;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  animation-delay: 8s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards; }
 
 #menu-wrapper {
   float: right;

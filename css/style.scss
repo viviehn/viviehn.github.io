@@ -225,14 +225,25 @@ footer{
 	animation-fill-mode: forwards;
 }
 
-.fade-in-text2 {
-	@extend .fade-in-text;
+
+.fade-in-text2{
+	animation-name: fade-in;
+	width: 100%;
+	height: auto;
+	opacity: 0;
 	animation-delay: 6s;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
 }
 
 .fade-in-text3 {
-	@extend .fade-in-text;
+	animation-name: fade-in;
+	width: 100%;
+	height: auto;
+	opacity: 0;
 	animation-delay: 8s;
+	animation-duration: 1.5s;
+	animation-fill-mode: forwards;
 }
 
 #menu-wrapper{
