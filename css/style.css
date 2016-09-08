@@ -640,7 +640,7 @@ nav {
 
 header {
   background-color: #EFF3F4; }
-  header h1 {
+  header h1, header h3, header h4 {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.7);
     transform: translate(0, 280%);
@@ -650,7 +650,7 @@ header {
     padding-top: 0px;
     padding-left: 0px;
     height: 44px; }
-  header h1:before, header h1:after {
+  header h1:before, header h3:before, header h4:before, header h1:after, header h3:after, header h4:after {
     position: absolute;
     content: "";
     top: 0px;
@@ -658,10 +658,10 @@ header {
     width: 0px;
     border-top: 22px solid transparent;
     border-bottom: 22px solid transparent; }
-  header h1:before {
+  header h1:before, header h3:before, header h4:before {
     left: 0px;
     border-left: 20px solid #EFF3F4; }
-  header h1:after {
+  header h1:after, header h3:after, header h4:after {
     left: auto;
     right: 0px;
     border-right: 20px solid #EFF3F4; }
@@ -674,7 +674,7 @@ body {
   width: 100%;
   margin: 0; }
 
-h1 {
+h1, h3, h4 {
   text-transform: uppercase;
   color: #373737;
   font-size: 160%;
@@ -690,6 +690,14 @@ h1 {
   /* Firefox, other Gecko */
   box-sizing: border-box;
   /* Opera/IE 8+ */ }
+
+h3, h4 {
+  text-align: left; }
+
+h4 {
+  font-style: italic;
+  font-size: 100%;
+  margin-top: 0; }
 
 p {
   width: 75%;
@@ -736,7 +744,7 @@ footer {
   /* Firefox, other Gecko */
   box-sizing: border-box;
   /* Opera/IE 8+ */ }
-  footer h1 {
+  footer h1, footer h3, footer h4 {
     text-transform: uppercase;
     text-align: center;
     color: #373737;

@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="results"></div> 
+ 
+<script>
+ 
+ // ID of the Google Spreadsheet
+ var spreadsheetID = "159LBY30ffyyPdtVLnIY3XMtTXbuIyElEczyq90M7EiQ";
+ 
+ // Make sure it is public or set to Anyone with link can view 
+ var url = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+ 
+ $.getJSON(url, function(data) {
+ 
+  var entry = data.feed.entry;
+ 
+  $(entry).each(function(){
+    // Column names are name, age, etc.
+    $('.results').append('<h3>'+this.gsx$company.$t+'</h3><h4>'+this.gsx$position.$t+'</h4><p>'+this.gsx$description.$t+'</p><p>'+this.gsx$qualifications.$t+'</p>');
+	if(this.gsx$application.$t!=''){
+		$('.results').append('<p><a href="'+this.gsx$application.$t+'" target="_blank">Apply Here!</a></p>');
+	} 
+ });
+ 
+ });
+ 
+</script>
