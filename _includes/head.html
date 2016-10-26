@@ -7,13 +7,14 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
   <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <link href=" {{ "/assets/lightbox/css/lightbox.css" | prepend: site.baseurl }}">
+  <script src=" {{ "/assets/lightbox/js/lightbox.js" | prepend: site.baseurl }}"></script>
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i" rel="stylesheet">
   <link rel="icon" href="{{ "/assets/ninja.png"| prepend: site.baseurl }}" type="image/png" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
 
 <script>
 	window.onload = function(){

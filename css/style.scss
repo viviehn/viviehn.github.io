@@ -2,24 +2,25 @@
 @import "../assets/hamburgers/hamburgers.scss";
 
 // Variables
-$base-font-family: Fira Sans, Arial, sans-serif;
-$base-font-weight: 300;
-$base-font-size:   16px;
-$base-width: 	   75%;
-$border-width:	   2px;
-$not-black: 	   #373737;
-$transp-gray:	   transparentize(#EEE, .3);
-$transp-white:	   transparentize(#FFF, .3);
-$light-blue:	   #EFF3F4;
-$dark-blue:		   #426973;
-$gray:			   #EEE;
-$off-white:		   #f4f3ed;
-$peach:			   #e3a786;
-$line-height-base:        1.428571429;
+$base-font-family:          Fira Sans, Arial, sans-serif;
+$base-font-weight:          300;
+$base-font-size:            16px;
+$base-width: 	            75%;
+$border-width:	            2px;
+$not-black: 	            #373737;
+$transp-gray:	            transparentize(#EEE, .3);
+$transp-white:	            transparentize(#FFF, .3);
+$light-blue:	            #EFF3F4;
+$dark-blue:		            #426973;
+$gray:			            #EEE;
+$off-white:		            #f4f3ed;
+$peach:			            #e3a786;
+$line-height-base:          1.428571429;
 $border-radius-base:        4px;
+$small-screen:              767px;
 
 // Mix-ins
-@mixin box-sizing{
+@mixin box-sizing {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
@@ -64,6 +65,10 @@ nav{
 	}
 }
 
+#main-header {
+    position: relative;
+    margin-top: 20px;
+}
 #site-title{
 	background-image: url("../assets/ninja.png");
 	background-repeat: no-repeat;
@@ -71,20 +76,20 @@ nav{
 	background-position: center;
 	overflow: hidden;
 	clear: both;
-	height: 250px;
+	height: 200px;
 }
 
-header{
+header {
 	background-color: $light-blue;
 	h1 {
 		text-align: center;
+        display: in-line;
 		background-color: $transp-white;
 		transform: translate(0, 280%);
 		font-size: 200%;
 		width: 300px;
-		padding-bottom: 4px;
-		padding-top: 0px;
-		padding-left: 0px;
+        margin: 0 auto 0 auto;
+        padding: 0 0 0 4px;
 		height: 44px;
 	}
 	h1:before, h1:after{
@@ -113,7 +118,7 @@ body{
 	font-size: $base-font-size;
 	font-weight: $base-font-weight;
 	width: 100%;
-	margin:0;
+    max-height: 100%;
 }
 
 h1{
@@ -189,7 +194,13 @@ footer{
 }
 
 
-
+.box-with-shadow {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin: auto;
+    width: 60%;
+    background: rgba(255, 255, 255, .7);
+    padding: 15px 0 15px 0;
+}
 
 @keyframes grow {
     from {width: 150px; max-height: 50px;}
@@ -198,25 +209,34 @@ footer{
 
 /* The element to apply the animation to */
 .special-box {
-    -webkit-transition: width 1.1s, max-height 3s;
-    transition:width 1s ease 1s, max-height 3s ease 2s;
-    max-height: 50px;
-    margin: auto;
+    padding: 10px 0 10px 0; 
+    margin: 20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     background-color: $transp-white;
-    width: 150px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /* Only animate on larger screens */
+    @media (min-width: $small-screen) {
+        -webkit-transition: width 1.1s, max-height 3s;
+        transition:width 1s ease 1s, max-height 3s ease 2s;
+        max-height: 50px;
+        margin: auto;
+        width: 150px;
+    }
 }
 
 #body{
+    margin: 0;
 }
 #box.loaded .special-box {
-    max-height: 800px;
+    @media (min-width: $small-screen) {
+        max-height: 800px;
+    }
 }
+
 #body.loaded .special-box{
-	max-height: 800px;
-	width: 40%;
+    @media (min-width: $small-screen) {
+        max-height: 800px;
+        width: 40%;
+    }
 }
 
 @keyframes fade-in {
@@ -238,40 +258,37 @@ footer{
 }
 
 .fade-in-text {
-	animation-name: fade-in;
-	width: 100%;
-	height: auto;
-	opacity: 0;
-	animation-delay: 2.5s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
+    width: 100%;
+    height: auto;
+    @media (min-width: $small-screen) {
+        opacity: 0;
+        animation-name: fade-in;
+        animation-fill-mode: forwards;
+    }
 }
 
-
-.fade-in-text2{
-	animation-name: fade-in;
-	width: 100%;
-	height: auto;
-	opacity: 0;
-	animation-delay: 3.5s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
+@media (min-width: $small-screen) {
+    .fade-in-text1 {
+        animation-delay: 2.5s;
+        animation-duration: 1s;
+    }
+    .fade-in-text2{
+        animation-delay: 3.5s;
+        animation-duration: 1s;
+    }
+    .fade-in-text3 {
+        animation-delay: 4.5s;
+        animation-duration: 1s;
+    }
 }
 
-.fade-in-text3 {
-	animation-name: fade-in;
-	width: 100%;
-	height: auto;
-	opacity: 0;
-	animation-delay: 4.5s;
-	animation-duration: 1s;
-	animation-fill-mode: forwards;
-}
 
 #menu-wrapper{
 	float: right;
-	margin-right: 20px;
-	position: relative;
+	margin: 20px;
+	position: absolute;
+    top: 0;
+    right: 0;
     display: inline-block;
 }
 
@@ -284,7 +301,7 @@ footer{
     float:right;
 }
 
-.menu-content{
+.menu-content {
 		display: none;
 	    position: absolute;
 	    background-color: $transp-white;
@@ -293,6 +310,7 @@ footer{
 	    font-size: 140%;
 	    min-width: 250px;
 	    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index:1;
 	    right:0;
 
 	    text-align: right;
@@ -303,10 +321,13 @@ footer{
 	    	text-decoration: none;
 	    	color: $not-black;
 	    }
-	    li a:hover{
+	    li a:hover {
 	    	text-decoration: none;
 	    	color: $peach;
 	    }
 	    @include box-sizing;
-	}
+        @media (max-width: $small-screen) {
+            background-color: #FFF;
+        }
+}
 .show {display:block;}
