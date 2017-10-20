@@ -692,6 +692,8 @@ h1, h3, h4 {
   /* Opera/IE 8+ */ }
 
 h3, h4 {
+  font-size: 120%;
+  margin-bottom: 0px;
   text-align: left; }
 
 h4 {
@@ -713,6 +715,12 @@ p {
     color: #e3a786; }
   p a:hover {
     color: #426973; }
+
+a {
+  color: #e3a786; }
+
+a:hover {
+  color: #426973; }
 
 h2 {
   text-transform: uppercase;
@@ -774,12 +782,24 @@ footer {
   padding-top: 10px;
   padding-bottom: 10px; }
 
+.page-style-box {
+  margin: auto;
+  padding: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.7);
+  max-width: 80%; }
+
 #box.loaded .special-box {
   max-height: 800px; }
 
 #body.loaded .special-box {
   max-height: 800px;
   width: 40%; }
+
+.page-content {
+  margin: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.7); }
 
 @keyframes fade-in {
   0% {
@@ -860,5 +880,3 @@ footer {
 
 .show {
   display: block; }
-
-/*# sourceMappingURL=style.css.map */
