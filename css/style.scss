@@ -1,5 +1,6 @@
 //Imports
 @import "../assets/hamburgers/hamburgers.scss";
+//@import "bootstrap-grid.scss";
 
 // Variables
 $base-font-family: Fira Sans, Arial, sans-serif;
@@ -128,8 +129,11 @@ h1{
 	margin-bottom: -5px;
 	@include box-sizing;
 }
+
 h3{
 	@extend h1;
+	font-size:120%;
+	margin-bottom:0px;
 	text-align: left;
 
 }
@@ -153,6 +157,13 @@ p {
 	a:hover{
 		color: $dark-blue;
 	}
+}
+
+a {
+	color: $peach;
+}
+a:hover{
+	color: $dark-blue;
 }
 
 h2{
@@ -209,6 +220,13 @@ footer{
     padding-bottom: 10px;
 }
 
+.page-style-box {
+	margin: auto;
+	padding: 60px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: $transp-white;
+	max-width: 80%;
+}
 #body{
 }
 #box.loaded .special-box {
@@ -217,6 +235,13 @@ footer{
 #body.loaded .special-box{
 	max-height: 800px;
 	width: 40%;
+}
+
+.page-content{
+
+    margin: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: $transp-white;
 }
 
 @keyframes fade-in {
