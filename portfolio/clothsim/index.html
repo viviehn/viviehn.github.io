@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<style>
+  body {
+    padding: 100px;
+    width: 1000px;
+    margin: auto;
+    text-align: left;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    color: #121212;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+</style>
+<title>CS 184 Mesh Editor</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro" rel="stylesheet">
+</head>
+
+
+<body>
+
+<h1 align="middle">CS 184: Computer Graphics and Imaging, Spring 2017</h1>
+<h1 align="middle">Project 4: Cloth Simulator</h1>
+<h2 align="middle">YOUR NAME, CS184-acd</h2>
+
+<br><br>
+
+<div>
+
+<h2 align="middle">Overview</h2>
+<p>In this project, I created a real-time cloth simulator using a mass and spring system. With this system, we can discretely represent the cloth to more easily apply physical forces and constraints on them. Using numerical integration, we are able to simulate the way cloth moves under a variety of circumstances - pinned, falling, and collision with objects. We can also implement self-collision handling to avoid the cloth clipping into itself.</p>
+
+<h2 align="middle">Part I: Masses and Springs</h2>
+<p>
+The first step to simulating cloth is to build a physical model we can use for the cloth itself. Here, we represent the cloth using a grid of masses and springs. First, we create all of the masses according to the specified num_width_points and num_height_points. Depending on the orientation of the cloth, we want to keep either y-coords constant or z-coords (relatively) constant. However, for vertical cloths, we want to actually slightly vary z within some random offset - this will allow us to simulate vertical cloths falling in later parts, rather than standing straight up. 
+</p>
+<p>
+After storing all the masses in row-major order, we want to create springs between certain combinations of masses. In particular, we create structural constraints in a regular grid - between a mass and the one to its left, and between a mass and the one above it. We create bending constraints similarly, but between a mass and the one two to its right, and between a mass and the one two above it. Finally, we create shearing constraints between a mass and the one to its upper diagonal left, and between a mass and the one to its upper diagonal right. 
+</p>
+
+
+<table style="width=100%">
+      <tr>
+        <td align="middle">
+          <img src="images/mesh.png" width="480px" />
+          <figcaption align="middle">One view of the pinned2 cloth mesh</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/mesh_2.png" width="480px" />
+           <figcaption align="middle">Another view of the pinned2 cloth mesh</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td align="middle">
+          <img src="images/shearing.png" width="480px" />
+          <figcaption align="middle">Shearing constraints only</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/no_shearing.png" width="480px" />
+           <figcaption align="middle">Structural and bending constraints only</figcaption>
+        </td>
+      </tr>
+    </table>
+
+
+<h2 align="middle">Part II: Simulation via Numerical Integration</h2>
+<p>
+Now that we have a cloth model, we want to apply forces on our mass-spring system to simulate motion. First, we need to calculate all the forces acting on each point mass. Forces can be split into external accelerations spring correction forces. After accumulating the external accelerations, we calculate the spring forces using Hooke's law and add a vector with a magnitude equal to the spring force and in the direction of a mass on one end of the spring to the one on the other end (and an opposite force to the other mass).
+</p>
+<p>
+Once we have the forces for each mass, we want to adjust the actual positions of each mass. We use Verlet integration to approximate the position at this 'upcoming' timestep, given the current timestep's position and the previous timestep's position.
+</p>
+<p>
+Finally, we want to constrain our updated positions so that our springs don't stretch infinitely! We want to ensure that the spring length is at most 1.1 times its rest_length in order to better simulate a rigid cloth model.
+</p>
+
+<table style="width=100%">
+      <tr>
+        <td align="middle">
+          <img src="images/15g.png" width="480px" />
+          <figcaption align="middle">Density at 15g</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/2g.png" width="480px" />
+           <figcaption align="middle">Density at 2g, less rippley</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td align="middle">
+          <img src="images/30g.png" width="480px" />
+          <figcaption align="middle">Density at 30g, more rippley</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/5000ks.png" width="480px" />
+           <figcaption align="middle">5000 ks</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td align="middle">
+          <img src="images/1000ks.png" width="480px" />
+          <figcaption align="middle">1000 ks, stretches a lot more</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/10000ks.png" width="480px" />
+           <figcaption align="middle">10000 ks, a lot stiffer</figcaption>
+        </td>
+      </tr>
+    </table>
+
+<h2 align="middle">Part III: Handling Collisions with Other Objects</h2>
+<p>
+For both the sphere and the plane, we want to calculate collisions with the cloth and these objects, and "bump up" the cloth so that it is very slightly above the object in question. In both cases, we calculate the point where the mass would have intersected the sphere or plane if it had traveled in a straight line from its last position and its current position. </p>
+<table style="width=100%">
+      <tr>
+        <td align="middle">
+          <img src="images/5000ks_sphere.png" width="480px" />
+          <figcaption align="middle">5000 ks</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/500ks_sphere.png" width="480px" />
+           <figcaption align="middle">500 ks, a much looser cloth, with softer drapes that clings closer to the sphere</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td align="middle">
+          <img src="images/50000ks_sphere.png" width="480px" />
+          <figcaption align="middle">50000 ks, stiffer springs make a stiffer cloth, for example, a vinyl table cloth that doesn't drape smoothly. </figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/plane.png" width="480px" />
+           <figcaption align="middle">Cloth lying flat on top of the plane</figcaption>
+        </td>
+      </tr>
+    </table>
+
+
+<h2 align="middle">Part IV: Handling Self-Collisions</h2>
+<p>The final step in this project is to handle self-collisions. Without this implemented, our cloth will just fall through itself as if its not an object itself. A naive solution would be to calculate distances between every pair of masses on each simulate tick, but this would take O(N^2) time for each call to simulate, which is very unreasonable, especially as the cloth increases in size or complexity.</p>
+<p>Instead, we employ spatial hashing; a mass's position becomes associated with some value representing its relative position in 3D space. Once we can calculate a unique identifier for any position, we can build a spatial map to narrow down masses that are likely to collide with one another.</p>
+<p>Now to each call to simulate, we also look for self-collisions. For any mass, we loop through ones that hash to the same spatial region, as these are the masses likely to be close enough to create a collision. If there are any, we want to move the mass in consideration to some average location away from all the masses it was closest to. </p>
+
+<table style="width=100%">
+      <tr>
+        <td align="middle">
+          <img src="images/15g_collide.png" width="480px" />
+          <figcaption align="middle">15g, draping down</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/15g_collide_2.png" width="480px" />
+           <figcaption align="middle">15g</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td align="middle">
+          <img src="images/15g_collide_3.png" width="480px" />
+          <figcaption align="middle">15g</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/15g_collide_4.png" width="480px" />
+           <figcaption align="middle">15g, folding over itself on the plane</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td align="middle">
+          <img src="images/2g_collide_1.png" width="480px" />
+          <figcaption align="middle">2g, draping down - a lot wider folds</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/2g_collide_3.png" width="480px" />
+           <figcaption align="middle">2g, cleaner, wider folds</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td align="middle">
+          <img src="images/30g_collide_1.png" width="480px" />
+          <figcaption align="middle">30g, floppier and messier folds </figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/30g_collide_3.png" width="480px" />
+           <figcaption align="middle">30g, wrinkley folds</figcaption>
+        </td>
+      </tr>
+      <tr>
+        <td align="middle">
+          <img src="images/500ks_collide.png" width="480px" />
+          <figcaption align="middle">500ks, cloth is softer and less stiff, so results in more folds</figcaption>
+        </td>
+        <td align="middle">
+           <img src="images/50000ks_collide.png" width="480px" />
+           <figcaption align="middle">50000ks, cloth is stiffer so folds are fewer and wider</figcaption>
+        </td>
+      </tr>
+    </table>
+
+
+</body>
+</html>
