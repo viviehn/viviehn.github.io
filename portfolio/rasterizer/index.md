@@ -1,0 +1,254 @@
+---
+layout: single-page
+---
+
+<h1 style="text-align:center">CS 184: Computer Graphics and Imaging, Spring 2017</h1>
+<h1 style="text-align:center">Project 1: Rasterizer</h1>
+<h1 style="text-align:center">VIVIEN NGUYEN, CS184-acd</h1>
+<hr>
+
+<h2>Overview</h2>
+<p>In this project, I've created a program that can render SVG files and apply PNG textures to them. Through the parts of this project, I've gone from drawing simple triangles on the screen, filling them with color, rotating them, and applying textures to them. From start to finish, we can see that many of these ideas have very humble beginnings but can achieve very powerful results by fine-tuning them. For example, the idea of interpolating colors and textures using barycentric coordinates (which I found very interesting despite their apparent simplicity) allows us to render increasingly complicated and interesting images.</p>
+<br>
+<p><em>The general pattern of this project: do something once. Achieve results. Do it many many many times (averaging the results). Achieve better results.</em></p>
+<br>
+
+<h2>Section I: Rasterization</h2>
+
+<h3 >Part 1: Rasterizing single-color triangles</h3>
+
+<p><strong><u>Implemention:</u></strong> I used the line test method introduced in lecture to determine if a certain point lay inside or outside of the triangle. I wrote a helper function that did the line test calculation for each line of the triangle, and then checked that all three results were greater than or equal to zero OR less than or equal to zero. This was to ensure that the test would work regardless of if the points were given in clockwise or counterclockwise order. <br/><br/> 
+My algorithm only checks points between min_y/max_y and min_x/max_x, which are determined at the beginning of the rasterize_triangle call. These values represent the smallest and largest x and y values out of the 3 points given, so my algorithm only looks at points within the bounding box of the triangle. <br/><br/>
+I did not apply any additional optimizations, but was intrigued by the idea of the "bounding box" method, which allows for a sort of "fast fail" check on the points.</p>
+
+<p><strong><u>Examples:</u></strong> Some obvious aliasing on the triangles, unsurprisingly. But they exist, so what more can I ask of them at this point?</p>
+
+<div class="row">
+<div class="col">
+  <img src="images/flower.png" class="img-fluid"/>
+  <figcaption align="middle">Obviously not composed of actual triangles, but this was still very exciting to see drawn for the first time!</figcaption>
+  <img src="images/drag.png" class="img-fluid"/>
+  <figcaption align="middle">Unplain dragon.</figcaption>
+</div>
+<div class="col">
+  <img src="images/box.png" class="img-fluid"/>
+  <figcaption align="middle">Plain cube.</figcaption>
+  <img src="images/aliasing.png" class="img-fluid"/>
+  <figcaption align="middle">Basic triangles. Very obvious aliasing on anything that's not a perfectly horizontal or vertical edge.</figcaption>
+</div>
+</div>
+<br>
+
+<h3>Part 2: Antialiasing triangles</h3>
+<div class="row">
+<div class="col-md-6">
+
+<p><strong><u>Implemention:</u></strong> I implemented supersampling by dividing each pixel into the parameterized number of subsamples. I then treated each of these subsamples as their own points, sampling them to see if they were in or out of the triangle or not. Basically, they were treated as if they were "whole" pixels. At the end, their colors were averaged to actually color the pixel. This resulted in a color that was based on the "area" of the single sample that was covered by the triangle; a sample that was 100% covered by the triangle would be rendered the color of the triangle, a sample that was 50% covered by the triangle would have closer to 50% the saturation of the triangle color, and so on. 
+</p>
+<br/>
+
+<p>
+Supersampling created a better visual representation of the triangle by allowing more freedom than a strict "in or out" test that only 1 sample per pixel enforces. This gives the illusion of "smoothing out" the edges, and allows us better detail in our triangles.
+</p>
+<br>
+<p><strong><u>Examples:</u></strong> Here, we zoom in on a very skinny corner of a triangle. Entire pieces of it are missing when we only sample once per pixel, but the true shape emerges as we sample more times per pixel.</p>
+</div>
+<div class="col">
+  <img src="images/1sample.png" class="img-fluid"/>
+  <figcaption align="middle">1 sample per pixel. (Pretty terrible.)</figcaption>
+  <img src="images/4sample.png" class="img-fluid"/>
+  <figcaption align="middle">4 samples per pixel. (Less terrible.) At this point, most of the edges on the larger triangles are already looking decent.</figcaption>
+</div>
+<div class="col">
+  <img src="images/9sample.png" class="img-fluid"/>
+  <figcaption align="middle">9 samples per pixel. (Actually not that bad!)</figcaption>
+  <img src="images/16sample.png" class="img-fluid"/>
+  <figcaption align="middle">16 samples per pixel. (Hey, pretty good!) Still doesn't look like a triangle in the pixel viewer, but the use of various pseudo-color-saturations is obvious, and it looks quite good in the zoomed out view.</figcaption>
+</div>
+</div>
+
+<br>
+<h3 align="middle">Part 3: Transforms</h3>
+
+<p><strong><u>Implemention:</u></strong> Note to self: always read C++ documentation. It took a non-trivial amount of time to realize that the sin and cos functions expected input in radians. 
+</p>
+<br>
+
+<p><strong><u>Examples:</u></strong> My first large programming project featured a ninja in a side-scrolling jump game and I guess I've been attached to cartoon ninja characters ever since. Here he is as the secret alter ego of cubeman. He reaches for his sword as he prepares to leap forward to defend students from the darkness of the black screen and segfaults.</p>
+<br>
+
+<div class="row">
+<div class="col">
+  <img src="images/cubeman.png" class="img-fluid"/>
+  <figcaption align="middle">Your basic, everyday cubeman; The American Hero.</figcaption>
+</div>
+<div class="col">
+  <img src="images/ninja.png" class="img-fluid"/>
+  <figcaption align="middle">In the night, he emerges as a ninja.</figcaption>
+</div>
+</div>
+<br>
+
+<h2 align="middle">Section II: Sampling</h2>
+
+<div class="row">
+<div class="col-md-8">
+<h3 align="middle">Part 4: Barycentric coordinates</h3>
+
+<p><strong><u>Implemention:</u></strong> When barycentric coordinates were first introduced in class, it reminded me a lot about wet-on-wet watercolor painting. In this technique, the painter will lay down clean water on the paper, then dip a brush with paint in various spots on the water. The paint will spread out in the water, blending smoothly with other colors as they meet. The strength of the color at a certain point is proportional to its distance from its origin. </p>
+<br>
+<p>
+ We can see this effect pretty clearly in the triangle below labeled "basic barycentric interpolation". Pure red, green, and blue are laid down at one point of the triangle each, and the colors spread out from their origin to blend with the other colors. </p>
+</div>
+<div class="col">
+<img src="images/watercolor.jpg" class="img-fluid" /> <br/><br/>
+</div>
+</div>
+
+<p>
+The barycentric coordinate system allows us to easily define points with relation to their space inside the triangle (and also allows us to easily identify whether points are in the triangle or not to begin with - I did not alter my implementation of the "point in triangle" test, but could have just used the barycentric coordinate calculation to say if a point was inside the triangle).  
+</p>
+<br>
+
+<p><strong><u>Examples:</u></strong> Ah, pretty colors.</p>
+
+<div class="row">
+<div class="col">
+  <img src="images/tricolor.png" class="img-fluid"/>
+  <figcaption align="middle">Basic barycentric interpolation.</figcaption>
+</div>
+<div class="col">
+  <img src="images/colorwheel.png" class="img-fluid"/>
+  <figcaption align="middle">Basic/Image7, the color wheel.</figcaption>
+</div>
+<div class="col">
+  <img src="images/hexcolor.png" class="img-fluid"/>
+  <figcaption align="middle">Just a gradient I made for fun, based off the nail polish collection I have on my desk.</figcaption>
+</div>
+</div>
+<br>
+
+
+<h3 align="middle">Part 5: "Pixel sampling" for texture mapping</h3>
+
+<p><strong><u>Implemention:</u></strong> I looked at pixel sampling as a translation from pixel x-y coordinates to texel u-v coordinates; it was as if we were trying to overlay the texture over our pixels to color them. However, our texture does not follow the exact same "resolution" as our rasterized pixels - so we can only do the best we can. To simplify, say we convert x-y to u-v and this gives us some decimal value, but we can only sample u-v at integers. If we choose a nearest pixel sampling method, then we just get the single closest u-coordinate and v-coordinate and sample the texture at that point. However, if we choose a bilinear pixel sampling method, then we get the <em>four</em> closest u-v coordinates, and use a weighted average based on how close they were to the "true" u-v coordinate.</p>
+<br>
+
+<p>
+One can easily imagine how this typically gives us better rendering - our textures appear smoother, with less jumps in between neighboring pixels. This is result of us literally averaging nearby texels. 
+</p>
+<br>
+
+<p><strong><u>Examples:</u></strong> The difference between nearest and bilinear sampling is made especially clear when sampling at a one sample rate. Being able to average essentially two samples to color a pixel allows for much more accurate representation. In this example, we get smoother transitions between the feathers of the bird, rather than sudden changes from pixel to pixel. At sixteen samples per pixel, we're already achieving a lot of detail - bilinear sampling gives less of an improvement here.</p>
+
+<div class="row">
+<div class="col">
+  <img src="images/1nearest.png" class="img-fluid"/>
+  <figcaption align="middle">Sampling rate: 1; nearest pixel sampling.</figcaption>
+  <img src="images/1bilinear.png" class="img-fluid"/>
+  <figcaption align="middle">Sampling rate: 1; bilinear pixel sampling.</figcaption>
+</div>
+<div class="col">
+  <img src="images/16nearest.png" class="img-fluid"/>
+  <figcaption align="middle">Sampling rate: 16; nearest pixel sampling.</figcaption>
+  <img src="images/16bilinear.png" class="img-fluid"/>
+  <figcaption align="middle">Sampling rate: 16; bilinear pixel sampling.</figcaption>
+</div>
+</div>
+<br>
+
+<h3 align="middle">Part 6: "Level sampling" with mipmaps for texture mapping</h3>
+
+<p><strong><u>Implemention:</u></strong> Using multiple texture levels in a mipmap is an example of downsampling or minifying a texture. One can imagine a perspective photo, where objects closer to the camera are clearly in higher detail than objects further away. We want to achieve the same results in texture mapping. In general, we want higher-resolution levels for areas that are more detail-dense, and lower-resolution levels for areas that require less sampling. This gives us higher efficiency in sampling and space! </p>
+<br>
+<p>
+For level 0 sampling, I initially thought that this would always give the best visual results at the trade off of slower sampling. Since level 0 has the highest resolution, I believed that this would result in the highest amount of detail in the rendered image. However, as demonstrated in lecture, this wouldn't be the case - it actually results in aliasing for "far off" objects, whose rasterized space doesn't cover an equivalent amount on the texture map. </p>
+<br>
+<p>
+Thus, we introduce nearest level sampling, which allows us to choose, pixel by pixel, which texture level we're going to use to color it. This allows us to choose a level that is the closest match to the pixel's "footprint" on the texture. Ideally, we want a one to one pixel to texel mapping. </p>
+<br>
+<p>
+After this, we introduce bilinear level sampling, which similar to bilinear pixel sampling, allows us to sample, in this case, two different mipmap levels. Then, we can linearly interpolate between the two results based on where the "ideal level" would be. Similar to calculating an "ideal" u,v and getting the best integer u,v available, we calculate an "ideal" level and interpolate between the two closest integer levels surrounding the ideal. The level closer to the ideal level gets more weight, etc. </p>
+<br>
+
+<p>
+Naturally, all these different sampling methods introduce various tradeoffs. To begin with, storing the mipmap requires some memory overhead (though not too much; as raised in discussion, it only requires an additional 1/3 storage space proportional to storing level 0). However, accessing these various levels does create many more memory accesses that aren't just accessing recently used blocks of memory. In addition, the more we sample, the more time it takes to render our images. </p>
+<br>
+<p>
+When it comes to pure visual benefit, it's not simply a matter of removing antialiasing. As seen below, trilinear sampling does introduce significant levels of blurring. I'd also like to note that trilinear sampling resulted in some very bizarre results when zooming very far into the image - namely a spattering of seemingly randomly colored pixels. My intuition is that was not bounding my values correctly and inadvertantly accessing garbage memory. Unfortunately, I was not able to resolve this issue at the time of submission. (See bloopers!)
+</p>
+<br>
+
+<p><strong><u>Examples:</u></strong> Here are some examples of various combinations between level sampling methods and pixel sampling methods. The first are of the map texture given in the project, the second are of the MacOS Sierra logo.</p>
+
+<br>
+<div class="row">
+<div class="col-md-4">
+  <img src="images/map_l0_p0.png" class="img-fluid"/>
+  <figcaption align="middle">Level 0, Nearest Pixel</figcaption>
+  <img src="images/map_l0_p1.png" class="img-fluid"/>
+  <figcaption align="middle">Level 0, Bilinear Pixel</figcaption>
+  <img src="images/mac_l0_p0.png" class="img-fluid"/>
+  <figcaption align="middle">Level 0, Nearest Pixel</figcaption>
+  <img src="images/mac_l0_p1.png" class="img-fluid"/>
+  <figcaption align="middle">Level 0, Bilinear Pixel</figcaption>
+</div>
+<div class="col">
+  <img src="images/map_l1_p0.png" class="img-fluid"/>
+  <figcaption align="middle">Nearest Level, Nearest Pixel</figcaption>
+  <img src="images/map_l1_p1.png" class="img-fluid"/>
+  <figcaption align="middle">Nearest Level, Bilinear Pixel</figcaption>
+  <img src="images/mac_l1_p0.png" class="img-fluid"/>
+  <figcaption align="middle">Nearest Level, Nearest Pixel</figcaption>
+  <img src="images/mac_l1_p1.png" class="img-fluid"/>
+  <figcaption align="middle">Nearest Level, Bilinear Pixel</figcaption>
+</div>
+<div class="col">
+  <img src="images/map_l2_p0.png" class="img-fluid"/>
+  <figcaption align="middle">Bilinear Level, Nearest Pixel</figcaption>
+  <img src="images/map_l2_p1.png" class="img-fluid"/>
+  <figcaption align="middle">Bilinear Level, Bilinear Pixel (Trilinear)</figcaption>
+  <img src="images/mac_l2_p0.png" class="img-fluid"/>
+  <figcaption align="middle">Bilinear Level, Nearest Pixel</figcaption>
+  <img src="images/mac_l2_p1.png" class="img-fluid"/>
+  <figcaption align="middle">Bilinear Level, Bilinear Pixel (Trilinear)</figcaption>
+</div>
+</div>
+<div class="row">
+<div class="col">
+  <img src="images/badgrid.png" class="img-fluid"/>
+  <figcaption align="middle">Miscellaneous sampling artifacts</figcaption>
+</div>
+<div class="col">
+  <img src="images/goodgrid.png" class="img-fluid"/>
+  <figcaption align="middle">Looks okay with higher sampling rate/improved sampling techniques</figcaption>
+</div>
+</div>
+
+<h2 align="middle">Section III: Art Competition</h2>
+<p>I ended up not participating in the competition, but I would have liked to write a program that procedurally generated triangles and colored them in a gradient. Something like this - a fun thing I like to play with lots! <a href="https://msurguy.github.io/triangles/" target="_blank">Triangle Generator</a>.</p>
+<br>
+
+<h3 align="middle">In Lieu of Part 7: Blooper Reel</h3>
+
+<p>One of the things I really liked about this project was how cool it looked when I messed up. (Other than segfaults, which just made me sad.)</p>
+<br>
+
+<div class="row">
+<div class="col">
+  <img src="images/blooper2.png" class="img-fluid"/>
+  <figcaption align="middle">This happens if I zoom really far in on the seal with trilinear sampling turned on.</figcaption>
+  <img src="images/blooper3.png" class="img-fluid"/>
+  <figcaption align="middle">This happens if I zoom <em>really</em> far in on the seal.</figcaption>
+  <img src="images/blooper5.png" class="img-fluid"/>
+  <figcaption align="middle">Submitting to r/vaporwave (Moire effects?)</figcaption>
+</div>
+<div class="col">
+  <img src="images/blooper6.png" class="img-fluid"/>
+  <figcaption align="middle">You can still see the continents I guess?</figcaption>
+  <img src="images/blooper7.png" class="img-fluid"/>
+  <figcaption align="middle">Looks like a broken television</figcaption>
+</div>
+</div>
+
+

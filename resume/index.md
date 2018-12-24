@@ -7,3 +7,4 @@ layout: single-page
 vivien.nguyen@berkeley.edu</p>
 
 <img src="/assets/resume-1.png" style="max-width:100%">
+<img src="/assets/resume-2.png" style="max-width:100%">

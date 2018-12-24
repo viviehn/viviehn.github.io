@@ -19,3 +19,6 @@ github_username:  viviehn
 
 # Build settings
 markdown: kramdown
+
+collections:
+    projects:

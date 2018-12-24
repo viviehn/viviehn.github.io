@@ -1,14 +1,29 @@
 ---
-layout: single-page
+layout: landing
 ---
 
-## hello.
+<div class="row">
+<div class="col">
+<h2>hello.</h2>
 
+<p>
 My name is Vivien Nguyen. I am a fourth year at UC Berkeley studying Computer Science. My interests are computer graphics, animation, and video games, as well as platform engineering and making tools for developers. Within computer graphics, I'm most interested in rendering and related technologies. I have a growing curiosity for computer vision and computational photography; as you can probably tell, visual computing is my obsession.
+</p>
+<br>
+<p>
+In particular, my research interests lie at the intersection of visual computing and the digital humanities. I am interested in exploring ways that we can utilize computer graphics to better share, analyze, visualize, and interact with cultural artifacts, such as heritage sites, paintings, and texts. I believe that cultural artifacts and historical information should be both accessible and exciting, and I believe that computer graphics is a key component of developing empathy for our collective past, present, and future.
+</p>
 
-I'm passionate about design - of systems, of visuals, of everyday interactions.
+<br>
 
-I consider myself an advocate for the importance of mental health, and am deeply interested in STEM education, outreach, and methodology.
+<h2>featured projects</h2>
 
-In 2017-2018, I was the director at [Pioneers in Engineering](https://pioneers.berkeley.edu), a 501(c)(3) nonprofit organization dedicated to STEM outreach, where I also served on the Board of Directors. We celebrated our 10th Anniversary that year! Please check us out if you're interested in getting involved or supporting our organization.
+<p>
+Below are a few of my featured projects. You can read more information and see more results on each of them by clicking the "Read More" button on the card. You can also see all of my projects here.
+</p>
+</div>
+<div class="col-md-3">
+  <img src="/assets/me.jpg" class="img-fluid">
+</div>
 
+</div>

@@ -1,6 +1,4 @@
 //Imports
-@import "../assets/hamburgers/hamburgers.scss";
-//@import "bootstrap-grid.scss";
 
 // Variables
 $base-font-family: Fira Sans, Arial, sans-serif;
@@ -16,6 +14,7 @@ $dark-blue:		   #426973;
 $gray:			   #EEE;
 $off-white:		   #f4f3ed;
 $peach:			   #e3a786;
+$dark-peach:       #e39886;
 $line-height-base:        1.428571429;
 $border-radius-base:        4px;
 
@@ -27,46 +26,22 @@ $border-radius-base:        4px;
 }
 
 nav{
-		background-color: white;
-	    border-top: $border-width solid $not-black;
-	    border-bottom: $border-width solid $not-black;
-	    height: 60px;
-	    text-align: center;
-	    width: 100%;
-	    margin: auto;
-	    @include box-sizing;
-	ul {
-	    display: inline-block;
-    	list-style-type: none;
-	    margin: auto;
-	    padding: 10px 0px;
-	    overflow: hidden;
-	    width: auto;
-	    height: 40px;
-	    clear: both;
-	}
+    @include box-sizing;
 
-	li {
-	    float: left;
-	    padding-top: 7px;
-	}
+    a {
+        color: $dark-blue;
+    }
+    a:hover{
+        color: $peach;
+    }
+}
 
-	li a {
-	    display: block;
-	    color: $not-black;
-	    text-align: center;
-	    text-transform: uppercase;
-	    margin: 0px 50px;
-	    text-decoration: none;
-	}
-
-	li a:hover {
-	    border-bottom: 1px dashed $not-black;
-	}
+.navbar-brand {
+    font-size: 140%;
 }
 
 #site-title{
-	background-image: url("../assets/ninja.png");
+	background-image: url("/assets/ninja.png");
 	background-repeat: no-repeat;
 	background-size: 200px 200px;
 	background-position: center;
@@ -84,7 +59,7 @@ header{
 		font-size: 200%;
 		width: 300px;
 		padding-bottom: 4px;
-		padding-top: 0px;
+		padding-top: 4px;
 		padding-left: 0px;
 		height: 44px;
 	}
@@ -117,6 +92,11 @@ body{
 	margin:0;
 }
 
+.main{
+    max-width:80%;
+    margin:auto;
+}
+
 h1{
 	text-transform: uppercase;
 	color: $not-black;
@@ -130,12 +110,22 @@ h1{
 	@include box-sizing;
 }
 
-h3{
-	@extend h1;
-	font-size:120%;
-	margin-bottom:0px;
+h2{
+	text-transform: uppercase;
+	color: $not-black;
 	text-align: left;
+	font-size: 140%;
+	font-weight: 500;
+	width: $base-width;
+	margin: auto;
+    margin-left: 0;
+    margin-bottom:5px;
+	@include box-sizing;
+}
 
+h3{
+	@extend h2;
+	font-size:120%;
 }
 
 h4{
@@ -146,8 +136,7 @@ h4{
 }
 
 p {
-	width: 90%;
-	padding: 10px 5px;
+	width: 100%;
 	@include box-sizing;
 	margin:auto;
 	a {
@@ -166,17 +155,6 @@ a:hover{
 	color: $dark-blue;
 }
 
-h2{
-	text-transform: uppercase;
-	color: $not-black;
-	text-align: center;
-	line-height: 50px;
-	font-size: 140%;
-	font-weight: 500;
-	width: $base-width;
-	margin: auto;
-	@include box-sizing;
-}
 
 footer{
 	background-color: $light-blue;
@@ -223,10 +201,15 @@ footer{
 .page-style-box {
 	margin: auto;
     margin-bottom: 30px;
-	padding: 30px;
+	padding: 15px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     background-color: $transp-white;
-	max-width: 75%;
+	max-width: 100%;
+}
+
+.page-style {
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: $transp-white;
 }
 #body{
 }
@@ -239,7 +222,6 @@ footer{
 }
 
 .page-content{
-
     margin: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     background-color: $transp-white;
@@ -336,3 +318,37 @@ footer{
 	    @include box-sizing;
 	}
 .show {display:block;}
+
+.btn-primary{
+    background-color: $peach;
+    border-color: $peach;
+}
+.btn-primary:hover{
+	background-color: $dark-blue;
+	border-color: $dark-blue;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 45%;
+    object-fit: cover;
+}
+
+.scroll-box {
+    overflow-y: scroll;
+}
+
+.col{
+    img{
+        margin-left:auto;
+        margin-right:auto;
+        display:block;
+    }
+}
+
+figcaption{
+    font-size:90%;
+}
+
+strong { font-weight: bold;  }
+

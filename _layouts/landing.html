@@ -4,18 +4,33 @@
   {% include head.html %}
 
 
-    <body id="body">
     
   {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
+  <div class="main">
+  <div class="page-style-box">
+    {{ content }}
+  </div>
+
+  <div class="row">
+  {% for fp in site.projects %}
+    {% if fp.featured == true %}
+
+    <div class="col">
+		<div class="card page-style h-100" >
+      <img class="card-img-top" src="{{ fp.img | prepend: site.baseurl }}" alt="Thumbnail">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ fp.name }}</h5>
+        <p class="card-text scroll-box">{{ fp.short }}</p>
+        <a href="{{ fp.link | prepend: site.baseurl }}" class="mt-auto btn btn-primary">See More</a>
       </div>
     </div>
+    </div>
 
-
-  </body>
+    {% endif %}
+  {% endfor %}
+  </div>
+  </div>
 
 
 {% include footer.html %}

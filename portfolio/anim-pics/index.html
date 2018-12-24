@@ -1,0 +1,146 @@
+---
+layout: single-page
+---
+
+  <h1 align="middle">Implementation of Animating Pictures <br>with Stochastic Motion Textures</h1>
+    <h2 align="middle">Vivien Nguyen || cs194-26-afd</h2>
+    <h2 align="middle">Original Paper by Yung-Yu Chuang et. al. 2005</h2>
+    <hr>
+
+    <h2>Overview</h2>
+    <p>In this project, our goal is to take a single static photograph or painting, and animate pieces of the image to make it look alive. We can accomplish this in a system consisting of three main steps: layer generation (segmentation, matting, inpainting), motion specification, and rendering. You can <a href="paper.pdf">read my paper write up here!</a></p>
+    <h2>Layer Generation: Segmentation</h2>
+    <div class="row">
+      <div class="col">
+      <p>Goal: Select a region to be the "foreground element" of this layer, i.e. the piece to be animated on this layer.</p>
+      <p>Process: Use photoshop to brush in a foreground region (white), background region (black), and ambiguous or unknown region (gray).</p>
+      <p>Results: A trimap, such as to the right.</p>
+      </div>
+      <div class="col">
+        <img src="support/clouds_trimap1.png" width="300px">
+      </div>
+    </div>
+    <h2>Layer Generation: Matting</h2>
+    <div class="row">
+      <div class="col">
+      <p>Goal: To recomposite the image, we want the foreground to look natural, even if it is moved to a different location on the background. In order to accomplish this, we will compute an alpha matte and most likely foreground only color for the pixels in the unknown region (gray areas of the trimap).</p>
+      <p>Process: Following "A Bayesian Approach to Digital Matting" by Yung-Yu Chuang et. al. 2001, we will alternately solve the MAP estimation for the most likely Foreground/Background color, then the most likely alpha value, given the observed pixel color for each pixel in the unknown region.</p>
+      <p>Results: A predicted foreground, background, and alpha matte.</p>
+        <img src="support/mapestimate.png" width="300px">
+      </div>
+      <div class="col">
+        <figcaption align="middle">Why do alpha matting?</figcaption><br>
+        <img src="support/bayesianmatting.png" width="200px">
+      <img src="support/bayes.png" width="300px">
+      </div>
+    </div>
+    <div class="row">
+      <img src="support/fg_new.jpg" width="300px" hspace="10px"> 
+      <img src="support/bg_new.jpg" width="300px" hspace="10px"> 
+      <img src="support/alpha_new.jpg" width="300px" hspace="10px"> 
+    </div>
+    <h2>Layer Generation: Inpainting</h2>
+    <div class="row">
+      <div class="col">
+      <p>Goal: Now that we've segmented and matted our foreground, we'd like to continue segmenting new layers. However, we have a huge black spot in our background. Moreover, when we animate the foreground, it will reveal new parts of the background. So we'd like to inpaint the missing parts!</p>
+      <p>Process: We can use a pretty straightforward inpainting algorithm, "Region Filling and Object Removal by Exemplar-Based Image Inpainting", by Criminisi et. al. 2003. The key element of this method is the fill order: we first compute the "fill front", or the edges of the remaining target region. Then, we compute high priority places to inpaint -- regions that are nearby existing structures in the source region, or regions with high gradients. Then, we define an NxN patch around this point, and search through all same sized patches in the source region. We look for the most similar patch (in the pixels available in the target patch), then copy over the needed pixels.</p>
+      <p>Results: An inpainted background, that we continue to use to segment new layers.</p>
+      </div>
+      <div class="col">
+        <img src="support/inpainting.png" width="300px">
+        <img src="gifs/inpainting.gif" width="200px">
+      </div>
+    </div>
+
+    <h2>Motion Specification</h2>
+    <div class="row">
+      <div class="col">
+        <p>Goal: We now have N layers, with a clear foreground element. In order to animate these layers, we need to define motions for each of them. We'd like to compute a displacement map, which in this implementation is a function on the time step <em>t</em>, that returns an [x, y] shift.</p>
+      <p>Process: We bucket our layers into four types of motion - water, boats, clouds, and plants. All of these are sums of sines (with the exception of clouds, which is a simple translation), but applied in different ways. For water and boats, we use the same sine sum within the same image, with the phase offset dependent on the y pixel of the pixel to be translated. This creates a nice rippling effect. We ask the user to click a point at the bottom of the boat, so we can set it in phase with the nearby water. We can also use similar techniques for even non-boat layers, like the circles example below. For that one, we use a dampening sine function to create a bouncing effect.</p>
+      <p>For plants, we ask the user to define a line running through the plant from up to down. Then, we map all the y values into a [0,1] range relative to this user-defined line. After generating our sinusoid, we apply it using linear interpolation across these y values.</p>
+      <p>Results: A function that we can call at each time step to generate a new frame.</p>
+      </div>
+      <div class="col">
+        <img src="support/rendering.png" width="500px">
+        <br>
+        <br>
+        <figcaption align="middle">What we have now</figcaption>
+      </div>
+    </div>
+
+    <h2>Rendering and Results</h2>
+    <div class="row">
+        <p>The final step of our pipeline is to render our frames! We proceed with layers from back to front (painter's algorithm) to synthesize each frame of our animation. At each time step, we call the displacement function for each layer, add that shift, and recomposite the layers using our computed alpha mattes.</p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>The Boat Studio, 1876 <br>Claude Monet</h2>
+      </div>
+      <div class="col">
+      <img src="inputs/boatstudio.jpg" hspace="20px">
+      </div>
+      <div class="col">
+      <img src="gifs/boatstudio.gif"> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>Sailing Boats - Morning, 1926<br>Yoshida Hiroshi</h2>
+      </div>
+      <div class="col">
+      <img src="inputs/sailingboat.jpg" hspace="20px">
+      </div>
+      <div class="col">
+      <img src="gifs/sailingboat.gif"> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>Several Circles, 1926<br>Wassily Kandinsky</h2>
+      </div>
+      <div class="col">
+      <img src="inputs/circles.png" hspace="20px">
+      </div>
+      <div class="col">
+      <img src="gifs/circles.gif"> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>Above the Clouds, 1929<br>Yoshida Hiroshi</h2>
+      </div>
+      <div class="col">
+      <img src="inputs/clouds.png" hspace="20px">
+      </div>
+      <div class="col">
+      <img src="gifs/clouds.gif"> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>Duck Pond<br><a href="https://community.glwb.net/gallery/index.php/Lorain-County-Summer-Photos/Duck-Pond-Fall-4">Source</a></h2>
+      </div>
+      <div class="col">
+      <img src="inputs/ducks.png" hspace="20px">
+      </div>
+      <div class="col">
+      <img src="gifs/ducks.gif"> 
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>Sunflower Field<br><a href="https://www.readingeagle.com/news/article/elverson-sunflower-field-a-sunny-spot-in-a-sometimes-dark-world">Source</a></h2>
+      </div>
+      <div class="col">
+      <img src="inputs/sunflowers.png" width="350px">
+      </div>
+      <div class="col">
+      <img src="gifs/sunflowers.gif" width="350px"> 
+      </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+

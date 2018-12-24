@@ -9,6 +9,20 @@ layout: default
 </div>
 <br>
 
+
+  {% for fp in site.projects %}
+
+		<div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{ fp.img | prepend: site.baseurl }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ fp.name }}</h5>
+        <p class="card-text">{{ fp.short }}</p>
+        <a href="{{ fp.link | prepend: site.baseurl }}" class="btn btn-primary">Read more!</a>
+      </div>
+    </div>
+
+  {% endfor %}
+
 <div class="page-style-box">
   <h2>The Duel - Animated Short, UCBUGG Sp17</h2><br>
   <div class="row">
