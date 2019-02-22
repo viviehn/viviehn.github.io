@@ -299,4 +299,20 @@ figcaption {
 strong {
   font-weight: bold; }
 
+.post-meta {
+  color: #426973;
+  text-align: center;
+  font-size: 105%; }
+
+.post-title {
+  font-size: 160%; }
+
+.post-meta-preview {
+  color: #426973;
+  font-size: 120%; }
+
+.post-list {
+  padding-left: 0;
+  list-style-type: none; }
+
 /*# sourceMappingURL=style.css.map */

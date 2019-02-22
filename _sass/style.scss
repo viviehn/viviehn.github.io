@@ -352,3 +352,22 @@ figcaption{
 
 strong { font-weight: bold;  }
 
+.post-meta{
+    color:$dark-blue;
+    text-align:center;
+    font-size:105%;
+}
+
+.post-title{
+    font-size:160%;
+}
+
+.post-meta-preview{
+    color:$dark-blue;
+    font-size:120%;
+}
+
+.post-list{
+    padding-left:0;
+    list-style-type: none;
+}
