@@ -16,12 +16,15 @@ In particular, my research interests lie at the intersection of visual computing
 
 <br>
 
+<!---
 <h2>featured projects</h2>
 
 <p>
 Below are a few of my featured projects. You can read more information and see more results on each of them by clicking the "Read More" button on the card. You can also see all of my projects here.
 </p>
+--->
 </div>
+
 <div class="col-md-3">
   <img src="/assets/me.jpg" class="img-fluid">
 </div>

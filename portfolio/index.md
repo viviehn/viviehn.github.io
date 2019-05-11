@@ -10,7 +10,7 @@ layout: default
 </div>
 <br>
 
-
+<!---
   <div class="row">
   {% for fp in site.projects %}
 
@@ -33,3 +33,4 @@ layout: default
   </div>
 
 </div>
+--->
