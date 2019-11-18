@@ -1,32 +1,21 @@
 ---
-layout: landing
+layout: default
+title: Home
 ---
 
-<div class="row">
-<div class="col">
-<h2>hello.</h2>
+<header>
+<p><span class="image left"><img src="assets/me.jpg" alt="" /></span>
 
-<p>
-My name is Vivien Nguyen. I am a fourth year at UC Berkeley studying Computer Science. My interests are computer graphics, animation, and video games, as well as platform engineering and making tools for developers. Within computer graphics, I'm most interested in rendering and related technologies. I have a growing curiosity for computer vision and computational photography; as you can probably tell, visual computing is my obsession.
+I'm currently a Master's student at UC Berkeley studying Computer Science and advised by Professor Ren Ng. My research interests are in computer graphics, computational photography, and computer vision. I'm particularly interested in applications related to preserving, studying, and visualizing cultural heritage.
+
+I believe that cultural artifacts and historical information should be both accessible and exciting, and that computer graphics is a key component of developing empathy for our collective past, present, and future. The digital humanities provide a unique opportunity to understand other societies in new ways and drive advances in computer science.
+<br/><br/>
+
+Aside from these interests, I'm passionate about STEM education and mental health advocacy! I have TA'd CS 184 (Computer Graphics) at UC Berkeley three times, and I was the Director of <a href="https://pioneers.berkeley.edu" target="_blank">Pioneers in Engineering</a> in 2017-2018.
+
 </p>
-<br>
-<p>
-In particular, my research interests lie at the intersection of visual computing and the digital humanities. I am interested in exploring ways that we can utilize computer graphics to better share, analyze, visualize, and interact with cultural artifacts, such as heritage sites, paintings, and texts. I believe that cultural artifacts and historical information should be both accessible and exciting, and I believe that computer graphics is a key component of developing empathy for our collective past, present, and future.
-</p>
+</header>
+<br/>
+<h2>Projects</h2>
 
-<br>
-
-<!---
-<h2>featured projects</h2>
-
-<p>
-Below are a few of my featured projects. You can read more information and see more results on each of them by clicking the "Read More" button on the card. You can also see all of my projects here.
-</p>
---->
-</div>
-
-<div class="col-md-3">
-  <img src="/assets/me.jpg" class="img-fluid">
-</div>
-
-</div>
+{% include tiles.html %}

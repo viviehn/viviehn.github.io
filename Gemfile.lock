@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    phantom_jekyll_theme (0.1.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  phantom_jekyll_theme!
+
+BUNDLED WITH
+   2.0.1
