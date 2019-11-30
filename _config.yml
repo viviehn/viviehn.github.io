@@ -7,7 +7,7 @@
 
 # Site settings
 title: Vivien Nguyen
-email: vivien.nguyen@berkeley.edu
+email: 
 description: 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://viviehn.github.io" # the base hostname & protocol for your site
