@@ -5,7 +5,7 @@ title: Home
 
 <span class="image left"><img src="assets/me.jpg" alt="" /></span>
 
-I received my BA in Computer Science in 2019 and am currently completing my MS in EECS at UC Berkeley. I will begin my PhD in Fall 2020!
+I received my BA in Computer Science in 2019 and am currently completing my MS in EECS at UC Berkeley. I will begin my PhD at Princeton University in Fall 2020!
 At Berkeley, I have been advised by [Professor Ren Ng](https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html) for the last couple years. I'm also extremely fortunate to be mentored by [Cecilia Zhang](https://people.eecs.berkeley.edu/~cecilia77/) and [Shiry Ginosar](https://people.eecs.berkeley.edu/~shiry/). 
 
 My research interests are in computer graphics, computational photography, and computer vision. I'm particularly interested in applications related to preserving, studying, and visualizing cultural heritage.
