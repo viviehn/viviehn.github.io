@@ -22,7 +22,7 @@
 				'opacity #{$duration} #{$ease}'
 			));
 			position: relative;
-			width: calc(#{(100% / 3)} - #{$gutter * 1});
+			width: calc(#{(100% / 4)} - #{$gutter * 1});
 			margin: $gutter 0 0 $gutter;
 
 			> .image {
@@ -54,7 +54,7 @@
 					height: 100%;
 					opacity: 1.0;
 					z-index: 1;
-					opacity: 0.6;
+					opacity: 0.8;
 				}
 
 				&:after {
@@ -212,7 +212,7 @@
 			margin: 0 0 0 ($gutter * -1);
 
 			article {
-				width: calc(#{(100% / 3)} - #{$gutter * 1});
+				width: calc(#{(100% / 4)} - #{$gutter * 1});
 				margin: $gutter 0 0 $gutter;
 			}
 		}

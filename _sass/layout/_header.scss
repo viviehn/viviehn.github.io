@@ -7,7 +7,8 @@
 /* Header */
 
 	#header {
-		@include padding(5em, 0, (3em, 0, -5em, 0));
+		@include padding(0em, 0, (3em, 0, -5em, 0));
+        text-align:right;
 
 		.logo {
 			display: block;
@@ -15,7 +16,7 @@
 			color: inherit;
 			font-weight: _font(weight-bold);
 			letter-spacing: _font(letter-spacing);
-			margin: 0 0 (_size(element-margin) * 1.25) 0;
+			margin: 0 0 0 0;
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
