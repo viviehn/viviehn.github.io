@@ -86,9 +86,11 @@ h2, h3, h4 {
   font-size: 140%;
   font-weight: 500;
   width: 75%;
+  margin-top: 5px;
   margin: auto;
   margin-left: 0;
   margin-bottom: 5px;
+  margin-top: 5px;
   -webkit-box-sizing: border-box;
   /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
