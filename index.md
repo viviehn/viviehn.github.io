@@ -17,7 +17,7 @@ I am currently a first year PhD student in Computer Science at Princeton Univers
 
 I received my BA ('19) in CS and MS ('20) in EECS at UC Berkeley. At Berkeley, I was advised by [Professor Ren Ng](https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html). I was also extremely fortunate to be mentored by [Cecilia Zhang](https://people.eecs.berkeley.edu/~cecilia77/) and [Shiry Ginosar](https://people.eecs.berkeley.edu/~shiry/) at [BAIR](https://bair.berkeley.edu). 
 
-My research interests are in computer graphics, computer vision, and machine learning. I'm particularly interested about problems related to the digital humanities, computational photography, and human perception. I'm also especially excited by preserving, studying, and visualizing cultural heritage.
+My research interests are in computer graphics, computer vision, and machine learning; I'm particularly interested in problems related to the digital humanities, computational photography, and human perception. I'm also especially excited by preserving, studying, and visualizing cultural heritage.
 
 Aside from these, I'm passionate about [STEM education](https://pioneers.berkeley.edu) and mental health advocacy! In my free time, I like baking and learning to paint. I'm one of those people who can't survive without coffee (preferred method: pour over), I like video games but I'm not very good at them(currently playing: Teamfight Tactics), and I think corgis are so cute they make me want to cry.
 
