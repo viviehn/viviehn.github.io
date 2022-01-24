@@ -13,13 +13,13 @@ vivienn <i class="fas fa-at"></i> princeton dot edu<br/>
 </div>
 <br/>
 
-I am currently a first year PhD student in Computer Science at Princeton University, where I am advised by [Professor Szymon Rusinkiewicz](https://www.cs.princeton.edu/~smr/)!
+I am currently a second year PhD student in Computer Science at Princeton University, where I am advised by [Professor Szymon Rusinkiewicz](https://www.cs.princeton.edu/~smr/)!
 
 I received my BA ('19) in CS and MS ('20) in EECS at UC Berkeley. At Berkeley, I was advised by [Professor Ren Ng](https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html). I was also extremely fortunate to be mentored by [Cecilia Zhang](https://people.eecs.berkeley.edu/~cecilia77/) and [Shiry Ginosar](https://people.eecs.berkeley.edu/~shiry/) at [BAIR](https://bair.berkeley.edu). 
 
-My research interests are in computer graphics, computer vision, and machine learning; I'm particularly interested in problems related to the digital humanities, computational photography, and human perception. I'm also especially excited by preserving, studying, and visualizing cultural heritage.
+My research interests are in computer graphics, computer vision, and machine learning; I'm particularly interested in problems related to the digital humanities, computational photography, human perception, and creative applications. I'm also especially in working on preserving, studying, and visualizing cultural heritage.
 
-Aside from these, I'm passionate about [STEM education](https://pioneers.berkeley.edu) and mental health advocacy! In my free time, I like baking and learning to paint. I'm one of those people who can't survive without coffee (preferred method: pour over), I like video games but I'm not very good at them(currently playing: Teamfight Tactics), and I think corgis are so cute they make me want to cry.
+Aside from these, I'm passionate about [STEM education](https://pioneers.berkeley.edu) and mental health advocacy! In my free time, I like baking, crafting, and video games.
 
 <h2>Publications and Projects</h2>
 {% include main_projects.html %}
@@ -40,6 +40,16 @@ Aside from these, I'm passionate about [STEM education](https://pioneers.berkele
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><strong>COS 426</strong> (Princeton)</td>
+      <td><strong>Computer Graphics</strong> (Grad TA)</td>
+      <td>Spring 2022</a></td>
+    </tr>
+    <tr>
+      <td><strong>COS 429</strong> (Princeton)</td>
+      <td><strong>Computer Vision</strong> (Grad TA)</td>
+      <td>Fall 2021</td>
+    </tr>
     <tr>
       <td><strong>CS 184</strong> (Berkeley)</td>
       <td><strong>Computer Graphics and Image Processing</strong> (Co-Instructor)</td>
@@ -79,6 +89,12 @@ Aside from these, I'm passionate about [STEM education](https://pioneers.berkele
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><strong>Adobe</strong></td>
+      <td><strong>Research Intern</strong><br/>
+      Non-photorealistic rendering, hosted by Aaron Hertzmann and additionally mentored by Matt Fisher.</td>
+      <td>May - Aug 2021</td>
+    </tr>
     <tr>
       <td><strong>NVIDIA</strong></td>
       <td><strong>Graphics and Content Developer Engineer Intern</strong><br/>
