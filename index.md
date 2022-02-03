@@ -43,7 +43,7 @@ Aside from these, I'm passionate about [STEM education](https://pioneers.berkele
     <tr>
       <td><strong>COS 426</strong> (Princeton)</td>
       <td><strong>Computer Graphics</strong> (Grad TA)</td>
-      <td>Spring 2022</a></td>
+      <td>Spring 2022</td>
     </tr>
     <tr>
       <td><strong>COS 429</strong> (Princeton)</td>
