@@ -12,7 +12,7 @@ vivienn <i class="fas fa-at"></i> princeton dot edu<br/>
 
 I am currently a fourth year PhD student in Computer Science at Princeton University, where I am advised by <a href="https://www.cs.princeton.edu/~smr/">Professor Szymon Rusinkiewicz</a>!
 
-I received my BA ('19) in CS and MS ('20) in EECS at UC Berkeley. At Berkeley, I was advised by <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html">Professor Ren Ng</a>. I was also extremely fortunate to be mentored by [Cecilia Zhang]<a href="https://people.eecs.berkeley.edu/~cecilia77/">Cecilia Zhang</a> and <a href="https://people.eecs.berkeley.edu/~shiry/">Shiry Ginosar</a> at <a href="https://bair.berkeley.edu">BAIR</a>. 
+I received my BA ('19) in CS and MS ('20) in EECS at UC Berkeley. At Berkeley, I was advised by <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html">Professor Ren Ng</a>. I was also extremely fortunate to be mentored by <a href="https://people.eecs.berkeley.edu/~cecilia77/">Cecilia Zhang</a> and <a href="https://people.eecs.berkeley.edu/~shiry/">Shiry Ginosar</a> at <a href="https://bair.berkeley.edu">BAIR</a>. 
 
 My research interests are in computer graphics, computer vision, and machine learning; I'm particularly interested in problems related to the digital humanities, computational photography, human perception, and creative applications. I'm also especially in working on preserving, studying, and visualizing cultural heritage and natural history.
 
