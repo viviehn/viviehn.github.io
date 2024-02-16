@@ -14,11 +14,11 @@
 		line-height: 1.15;
 
 		@include breakpoint(xlarge) {
-			font-size: 14pt;
+			font-size: 11pt;
 		}
 
 		@include breakpoint(large) {
-			font-size: 12pt;
+			font-size: 10pt;
 		}
 	}
 
@@ -93,6 +93,7 @@
 		font-size: 1em;
 	}
 
+    h4 {
 		font-size: 0.8em;
 	}
 
