@@ -90,7 +90,7 @@ Aside from these, I'm passionate about teaching, <a href="https://pioneers.berke
     <tr>
       <td><strong>Adobe</strong></td>
       <td><strong>Research Intern</strong><br/>
-      Non-photorealistic rendering, hosted by Aaron Hertzmann and additionally mentored by Matt Fisher.</td>
+      Non-photorealistic rendering, advised by Aaron Hertzmann and Matt Fisher.</td>
       <td>May - Aug 2021</td>
     </tr>
     <tr>
