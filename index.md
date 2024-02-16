@@ -4,9 +4,11 @@ title: Home
 ---
 <span class="image left"><img src="assets/me.jpg" alt="" /></span>
 
-<div class="quickbio"><em>Vivien Nguyen (she/her) <br/>
+<div class="quickbio">
+<em>Vivien Nguyen (she/her) <br/>
 PhD Student, Princeton University <br/>
 vivienn <i class="fas fa-at"></i> princeton dot edu<br/>
+</em>
 
 I am currently a fourth year PhD student in Computer Science at Princeton University, where I am advised by [Professor Szymon Rusinkiewicz](https://www.cs.princeton.edu/~smr/)!
 
