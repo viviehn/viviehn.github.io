@@ -20,12 +20,14 @@ My research interests are in computer graphics, computer vision, and machine lea
 Aside from these, I'm passionate about teaching, <a href="https://pioneers.berkeley.edu">STEM education</a> and mental health advocacy.
 </div>
 
+
+<br/>
+<br/>
+
 <h2>Publications and Projects</h2>
 {% include main_projects.html %}
 
 <br/>
-
-
 <a href="/projects.html" class="button">You can view all my projects here.</a>
 
 <h2>Teaching</h2>
