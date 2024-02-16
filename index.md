@@ -10,13 +10,13 @@ PhD Student, Princeton University <br/>
 vivienn <i class="fas fa-at"></i> princeton dot edu<br/>
 </em>
 
-I am currently a fourth year PhD student in Computer Science at Princeton University, where I am advised by [Professor Szymon Rusinkiewicz](https://www.cs.princeton.edu/~smr/)!
+I am currently a fourth year PhD student in Computer Science at Princeton University, where I am advised by <a href="https://www.cs.princeton.edu/~smr/">Professor Szymon Rusinkiewicz</a>!
 
-I received my BA ('19) in CS and MS ('20) in EECS at UC Berkeley. At Berkeley, I was advised by [Professor Ren Ng](https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html). I was also extremely fortunate to be mentored by [Cecilia Zhang](https://people.eecs.berkeley.edu/~cecilia77/) and [Shiry Ginosar](https://people.eecs.berkeley.edu/~shiry/) at [BAIR](https://bair.berkeley.edu). 
+I received my BA ('19) in CS and MS ('20) in EECS at UC Berkeley. At Berkeley, I was advised by <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html">Professor Ren Ng</a>. I was also extremely fortunate to be mentored by [Cecilia Zhang]<a href="https://people.eecs.berkeley.edu/~cecilia77/">Cecilia Zhang</a> and <a href="https://people.eecs.berkeley.edu/~shiry/">Shiry Ginosar</a> at <a href="https://bair.berkeley.edu">BAIR</a>. 
 
 My research interests are in computer graphics, computer vision, and machine learning; I'm particularly interested in problems related to the digital humanities, computational photography, human perception, and creative applications. I'm also especially in working on preserving, studying, and visualizing cultural heritage and natural history.
 
-Aside from these, I'm passionate about [STEM education](https://pioneers.berkeley.edu) and mental health advocacy!
+Aside from these, I'm passionate about teaching, <a href="https://pioneers.berkeley.edu">STEM education</a> and mental health advocacy.
 </div>
 
 <h2>Publications and Projects</h2>
