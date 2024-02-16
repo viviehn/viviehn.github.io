@@ -5,21 +5,17 @@ title: Home
 <span class="image left"><img src="assets/me.jpg" alt="" /></span>
 
 <div class="quickbio"><em>Vivien Nguyen (she/her) <br/>
-PhD Student <br/>
-Graphics/Vision/HCI/ML<br/>
-Princeton University<br/></em>
+PhD Student, Princeton University <br/>
 vivienn <i class="fas fa-at"></i> princeton dot edu<br/>
-<a href="#">Blog</a>  /  <a href="#">CV</a>  /  <a href="https://twitter.com/vivienngyn" class="icon style1 fa-twitter"></a>  /  <a href="https://github.com/viviehn" class="icon style1 fa-github"></a>
-</div>
-<br/>
 
-I am currently a second year PhD student in Computer Science at Princeton University, where I am advised by [Professor Szymon Rusinkiewicz](https://www.cs.princeton.edu/~smr/)!
+I am currently a fourth year PhD student in Computer Science at Princeton University, where I am advised by [Professor Szymon Rusinkiewicz](https://www.cs.princeton.edu/~smr/)!
 
 I received my BA ('19) in CS and MS ('20) in EECS at UC Berkeley. At Berkeley, I was advised by [Professor Ren Ng](https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html). I was also extremely fortunate to be mentored by [Cecilia Zhang](https://people.eecs.berkeley.edu/~cecilia77/) and [Shiry Ginosar](https://people.eecs.berkeley.edu/~shiry/) at [BAIR](https://bair.berkeley.edu). 
 
-My research interests are in computer graphics, computer vision, and machine learning; I'm particularly interested in problems related to the digital humanities, computational photography, human perception, and creative applications. I'm also especially in working on preserving, studying, and visualizing cultural heritage.
+My research interests are in computer graphics, computer vision, and machine learning; I'm particularly interested in problems related to the digital humanities, computational photography, human perception, and creative applications. I'm also especially in working on preserving, studying, and visualizing cultural heritage and natural history.
 
-Aside from these, I'm passionate about [STEM education](https://pioneers.berkeley.edu) and mental health advocacy! In my free time, I like baking, crafting, and video games.
+Aside from these, I'm passionate about [STEM education](https://pioneers.berkeley.edu) and mental health advocacy!
+</div>
 
 <h2>Publications and Projects</h2>
 {% include main_projects.html %}
