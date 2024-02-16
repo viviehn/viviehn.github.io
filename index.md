@@ -9,6 +9,7 @@ title: Home
 PhD Student, Princeton University <br/>
 vivienn <i class="fas fa-at"></i> princeton dot edu<br/>
 </em>
+<br/>
 
 I am currently a fourth year PhD student in Computer Science at Princeton University, where I am advised by <a href="https://www.cs.princeton.edu/~smr/">Professor Szymon Rusinkiewicz</a>!
 
