@@ -2,11 +2,13 @@
 layout: default
 title: Home
 ---
-<span class="image left"><img src="assets/me.jpg" alt="" /></span>
+<div class="quickbio" style="display:inline-block">
+<span class="image left" style="width:25%"> 
+<img src="assets/me.jpg" alt=""/>
+</span>
 
-<div class="quickbio">
 <em>Vivien Nguyen (she/her) <br/>
-PhD Student, Princeton University <br/>
+Princeton University <br/>
 vivienn <i class="fas fa-at"></i> princeton dot edu<br/>
 </em>
 <br/>
@@ -20,15 +22,11 @@ My research interests are in computer graphics, computer vision, and machine lea
 Aside from these, I'm passionate about teaching, <a href="https://pioneers.berkeley.edu">STEM education</a> and mental health advocacy.
 </div>
 
-
-<br/>
-<br/>
-
 <h2>Publications and Projects</h2>
 {% include main_projects.html %}
-
-<br/>
+<div style="padding-top:2em">
 <a href="/projects.html" class="button">You can view all my projects here.</a>
+</div>
 
 <h2>Teaching</h2>
 
