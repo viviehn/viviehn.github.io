@@ -25,7 +25,7 @@ Aside from these, I'm passionate about teaching, <a href="https://pioneers.berke
 <h2>Publications and Projects</h2>
 {% include main_projects.html %}
 <div style="padding-top:2em">
-<a href="/projects.html" class="button">You can view all my projects here.</a>
+<a href="/projects" class="button">You can view all my projects here.</a>
 </div>
 
 <h2>Teaching</h2>
