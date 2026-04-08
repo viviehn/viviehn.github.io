@@ -13,19 +13,20 @@ vivienn <i class="fas fa-at"></i> princeton dot edu<br/>
 </em>
 <br/>
 
-I am currently a fourth year PhD student in Computer Science at Princeton University, where I am advised by <a href="https://www.cs.princeton.edu/~smr/">Professor Szymon Rusinkiewicz</a>!
+I am currently a sixth year PhD student in Computer Science at Princeton University, where I am advised by <a href="https://www.cs.princeton.edu/~smr/">Professor Szymon Rusinkiewicz</a>!
 
 I received my BA ('19) in CS and MS ('20) in EECS at UC Berkeley. At Berkeley, I was advised by <a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/yirenng.html">Professor Ren Ng</a>. I was also extremely fortunate to be mentored by <a href="https://people.eecs.berkeley.edu/~cecilia77/">Cecilia Zhang</a> and <a href="https://people.eecs.berkeley.edu/~shiry/">Shiry Ginosar</a> at <a href="https://bair.berkeley.edu">BAIR</a>. 
 
-My research interests are in computer graphics, computer vision, and machine learning; I'm particularly interested in problems related to the digital humanities, computational photography, human perception, and creative applications. I'm also especially in working on preserving, studying, and visualizing cultural heritage and natural history.
+My research interests are in computer graphics and computer vision; I'm interested in problems related to computational photography and 3D reconstruction. I'm especially interested in digitization (2D and 3D) and visual analysis in museums, libraries, collections, and other similar spaces. If you're working on digitization (particularly of complex objects or a large collection of objects) or a visual digital humanities project, I'd love to chat!
 
-Aside from these, I'm passionate about teaching, <a href="https://pioneers.berkeley.edu">STEM education</a> and mental health advocacy.
+Aside from these, I'm passionate about teaching, <a href="https://pioneers.berkeley.edu">STEM education</a> and mental health advocacy. In my free time, I like gaming, arts & crafts, and collecting trinkets! 
+
 </div>
 
 <h2>Publications and Projects</h2>
 {% include main_projects.html %}
 <div style="padding-top:2em">
-<a href="/projects" class="button">You can view all my projects here.</a>
+<a href="/projects" class="button">You can view my projects here.</a>
 </div>
 
 <h2>Teaching</h2>
